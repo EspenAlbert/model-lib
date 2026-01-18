@@ -17,7 +17,7 @@
 <!-- === DO_NOT_EDIT: pkg-ext ignorefalsy_def === -->
 ### class: `IgnoreFalsy`
 - [source](../../model_lib/dump_functions.py#L17)
-> **Since:** unreleased
+> **Since:** 0.100.0
 
 ```python
 class IgnoreFalsy(BaseModel):
@@ -36,7 +36,7 @@ def dump(instance: Any) -> str:
 <!-- === DO_NOT_EDIT: pkg-ext dump_as_dict_def === -->
 ### function: `dump_as_dict`
 - [source](../../model_lib/serialize/dump.py#L73)
-> **Since:** unreleased
+> **Since:** 0.100.0
 
 ```python
 def dump_as_dict(instance: object) -> dict:
@@ -46,7 +46,7 @@ def dump_as_dict(instance: object) -> dict:
 <!-- === DO_NOT_EDIT: pkg-ext dump_as_list_def === -->
 ### function: `dump_as_list`
 - [source](../../model_lib/serialize/dump.py#L78)
-> **Since:** unreleased
+> **Since:** 0.100.0
 
 ```python
 def dump_as_list(instance: Iterable[~ModelT]) -> list:

@@ -598,3 +598,8 @@ name: dump
 ts: 2026-01-18 20:03:42.277737+00:00
 type: keep_private
 full_path: serialize.json_serialize.dump
+---
+name: 0.100.0
+ts: 2026-01-18 20:08:14.973062+00:00
+type: release
+old_version: 0.99.1

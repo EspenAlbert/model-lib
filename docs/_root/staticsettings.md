@@ -3,7 +3,7 @@
 <!-- === DO_NOT_EDIT: pkg-ext staticsettings_def === -->
 ## class: StaticSettings
 - [source](../../model_lib/static_settings.py#L10)
-> **Since:** unreleased
+> **Since:** 0.100.0
 
 ```python
 class StaticSettings(BaseSettings):
@@ -34,5 +34,5 @@ class StaticSettings(BaseSettings):
 
 | Version | Change |
 |---------|--------|
-| unreleased | Made public |
+| 0.100.0 | Made public |
 <!-- === OK_EDIT: pkg-ext staticsettings_changes === -->

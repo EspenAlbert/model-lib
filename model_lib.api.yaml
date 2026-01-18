@@ -1,4 +1,434 @@
 pkg_import_name: model_lib
-version: 0.99.0
-groups: []
-dumped_at: 2026-01-18 19:00:54.081239+00:00
+version: 0.100.0
+groups:
+- name: __ROOT__
+  symbols:
+  - name: Entity
+    module_path: model_base
+    docstring: ''
+    line_number: 60
+    type: class
+    direct_bases:
+    - _Model
+    init_signature:
+      parameters:
+      - name: self
+        kind: positional_only
+        type_imports: []
+      - name: data
+        kind: var_keyword
+        type_annotation: Any
+        type_imports:
+        - typing.Any
+      return_annotation: None
+      return_type_imports: []
+    fields: []
+  - name: Event
+    module_path: model_base
+    docstring: ''
+    line_number: 56
+    type: class
+    direct_bases:
+    - _Model
+    init_signature:
+      parameters:
+      - name: self
+        kind: positional_only
+        type_imports: []
+      - name: data
+        kind: var_keyword
+        type_annotation: Any
+        type_imports:
+        - typing.Any
+      return_annotation: None
+      return_type_imports: []
+    fields: []
+  - name: StaticSettings
+    module_path: static_settings
+    docstring: ''
+    line_number: 10
+    type: class
+    direct_bases:
+    - BaseSettings
+    fields:
+    - name: STATIC_DIR
+      type_annotation: Path
+      type_imports:
+      - pathlib.Path
+      default:
+        value_repr: PydanticUndefined
+        is_factory: false
+      is_class_var: false
+      is_computed: false
+      env_vars:
+      - static_dir
+    - name: CACHE_DIR
+      type_annotation: Path
+      type_imports:
+      - pathlib.Path
+      default:
+        value_repr: PydanticUndefined
+        is_factory: false
+      is_class_var: false
+      is_computed: false
+      env_vars:
+      - cache_dir
+    - name: SKIP_APP_NAME
+      type_annotation: bool
+      type_imports: []
+      default:
+        value_repr: 'False'
+        is_factory: false
+      is_class_var: false
+      is_computed: false
+      env_vars:
+      - skip_app_name
+- name: dump
+  symbols:
+  - name: IgnoreFalsy
+    module_path: dump_functions
+    docstring: ''
+    line_number: 17
+    type: class
+    direct_bases:
+    - BaseModel
+    init_signature:
+      parameters:
+      - name: self
+        kind: positional_only
+        type_imports: []
+      - name: data
+        kind: var_keyword
+        type_annotation: Any
+        type_imports:
+        - typing.Any
+      return_annotation: None
+      return_type_imports: []
+    fields: []
+  - name: dump_as_dict
+    module_path: serialize.dump
+    docstring: ''
+    line_number: 73
+    type: function
+    signature:
+      parameters:
+      - name: instance
+        kind: positional_or_keyword
+        type_annotation: object
+        type_imports: []
+      return_annotation: dict
+      return_type_imports: []
+  - name: dump_as_list
+    module_path: serialize.dump
+    docstring: ''
+    line_number: 78
+    type: function
+    signature:
+      parameters:
+      - name: instance
+        kind: positional_or_keyword
+        type_annotation: Iterable[~ModelT]
+        type_imports: []
+      return_annotation: list
+      return_type_imports: []
+  - name: dump
+    module_path: serialize.json_serialize
+    docstring: ''
+    line_number: 19
+    type: function
+    signature:
+      parameters:
+      - name: instance
+        kind: positional_or_keyword
+        type_annotation: Any
+        type_imports:
+        - typing.Any
+      return_annotation: str
+      return_type_imports: []
+- name: fields
+  symbols:
+  - name: BaseModelT
+    module_path: pydantic_utils
+    docstring: "Type variable.\n\nThe preferred way to construct a type variable is via the dedicated\nsyntax for generic functions, classes, and type aliases::\n\n    class Sequence[T]:  # T is a TypeVar\n        ...\n\nThis syntax can also be used to create bound and constrained type\nvariables::\n\n    # S is a TypeVar bound to str\n    class StrSequence[S: str]:\n        ...\n\n    # A is a TypeVar constrained to str or bytes\n    class StrOrBytesSequence[A: (str, bytes)]:\n        ...\n\nType variables can also have defaults:\n\n    class IntDefault[T = int]:\n        ...\n\nHowever, if desired, reusable type variables can also be constructed\nmanually, like so::\n\n   T = TypeVar('T')  # Can be anything\n   S = TypeVar('S', bound=str)  # Can be any subtype of str\n   A = TypeVar('A', str, bytes)  # Must be exactly str or bytes\n   D = TypeVar('D', default=int)  # Defaults to int\n\nType variables exist primarily for the benefit of static type\ncheckers.  They serve as the parameters\
+      \ for generic types as well\nas for generic function and type alias definitions.\n\nThe variance of type variables is inferred by type checkers when they\nare created through the type parameter syntax and when\n``infer_variance=True`` is passed. Manually created type variables may\nbe explicitly marked covariant or contravariant by passing\n``covariant=True`` or ``contravariant=True``. By default, manually\ncreated type variables are invariant. See PEP 484 and PEP 695 for more\ndetails.\n"
+    type: type_alias
+    alias_target: ~BaseModelT
+  - name: copy_and_validate
+    module_path: pydantic_utils
+    docstring: ''
+    line_number: 103
+    type: function
+    signature:
+      parameters:
+      - name: model
+        kind: positional_or_keyword
+        type_annotation: ~BaseModelT
+        type_imports: []
+      - name: updates
+        kind: var_keyword
+        type_imports: []
+      return_annotation: ~BaseModelT
+      return_type_imports: []
+  - name: env_var_name
+    module_path: pydantic_utils
+    docstring: ''
+    line_number: 13
+    type: function
+    signature:
+      parameters:
+      - name: settings
+        kind: positional_or_keyword
+        type_annotation: BaseSettings | type[BaseSettings]
+        type_imports:
+        - pydantic_settings.main.BaseSettings
+        - pydantic_settings.main.BaseSettings
+      - name: field_name
+        kind: positional_or_keyword
+        type_annotation: str
+        type_imports: []
+      return_annotation: str
+      return_type_imports: []
+  - name: env_var_names
+    module_path: pydantic_utils
+    docstring: ''
+    line_number: 31
+    type: function
+    signature:
+      parameters:
+      - name: settings
+        kind: positional_or_keyword
+        type_annotation: BaseSettings | type[BaseSettings]
+        type_imports:
+        - pydantic_settings.main.BaseSettings
+        - pydantic_settings.main.BaseSettings
+      return_annotation: list[str]
+      return_type_imports: []
+  - name: field_names
+    module_path: pydantic_utils
+    docstring: ''
+    line_number: 128
+    type: function
+    signature:
+      parameters:
+      - name: model_type
+        kind: positional_or_keyword
+        type_annotation: type[BaseModel] | BaseModel
+        type_imports:
+        - pydantic.main.BaseModel
+        - pydantic.main.BaseModel
+      return_annotation: list[str]
+      return_type_imports: []
+- name: parse
+  symbols:
+  - name: parse_dict
+    module_path: serialize.parse
+    docstring: ''
+    line_number: 132
+    type: function
+    signature:
+      parameters:
+      - name: payload
+        kind: positional_or_keyword
+        type_annotation: ~RegisteredPayloadT | str | bytes | Path | dict | list
+        type_imports:
+        - pathlib.Path
+      - name: format
+        kind: positional_or_keyword
+        type_annotation: FileFormat | str
+        type_imports:
+        - model_lib.constants.FileFormat
+        default:
+          value_repr: '''json'''
+          is_factory: false
+      return_annotation: dict
+      return_type_imports: []
+  - name: parse_list
+    module_path: serialize.parse
+    docstring: ''
+    line_number: 125
+    type: function
+    signature:
+      parameters:
+      - name: payload
+        kind: positional_or_keyword
+        type_annotation: ~RegisteredPayloadT | str | bytes | Path | dict | list
+        type_imports:
+        - pathlib.Path
+      - name: format
+        kind: positional_or_keyword
+        type_annotation: FileFormat | str
+        type_imports:
+        - model_lib.constants.FileFormat
+        default:
+          value_repr: '''json'''
+          is_factory: false
+      return_annotation: list
+      return_type_imports: []
+  - name: parse_model
+    module_path: serialize.parse
+    docstring: ''
+    line_number: 50
+    type: function
+    signature:
+      parameters:
+      - name: payload
+        kind: positional_or_keyword
+        type_annotation: ~RegisteredPayloadT | str | bytes | Path | dict | list
+        type_imports:
+        - pathlib.Path
+      - name: t
+        kind: positional_or_keyword
+        type_annotation: type[~T] | None
+        type_imports: []
+        default:
+          value_repr: None
+          is_factory: false
+      - name: format
+        kind: positional_or_keyword
+        type_annotation: FileFormat | str
+        type_imports:
+        - model_lib.constants.FileFormat
+        default:
+          value_repr: '''json'''
+          is_factory: false
+      - name: extra_kwargs
+        kind: positional_or_keyword
+        type_annotation: Mapping[str, Any] | None
+        type_imports:
+        - typing.Any
+        default:
+          value_repr: None
+          is_factory: false
+      return_annotation: ~T
+      return_type_imports: []
+  - name: parse_payload
+    module_path: serialize.parse
+    docstring: ''
+    line_number: 139
+    type: function
+    signature:
+      parameters:
+      - name: payload
+        kind: positional_or_keyword
+        type_annotation: object
+        type_imports: []
+      - name: format
+        kind: positional_or_keyword
+        type_imports: []
+        default:
+          value_repr: '''json'''
+          is_factory: false
+      return_annotation: dict | list
+      return_type_imports: []
+- name: yaml
+  symbols:
+  - name: edit_helm_template
+    module_path: serialize.yaml_serialize
+    docstring: ''
+    line_number: 115
+    type: class
+    direct_bases: []
+    init_signature:
+      parameters:
+      - name: self
+        kind: positional_or_keyword
+        type_imports: []
+      - name: path
+        kind: positional_or_keyword
+        type_annotation: PathLike
+        type_imports:
+        - os.PathLike
+      - name: out_path
+        kind: positional_or_keyword
+        type_annotation: PathLike | None
+        type_imports:
+        - os.PathLike
+        default:
+          value_repr: None
+          is_factory: false
+      - name: yaml_path
+        kind: positional_or_keyword
+        type_imports: []
+        default:
+          value_repr: None
+          is_factory: false
+      return_type_imports: []
+  - name: edit_yaml
+    module_path: serialize.yaml_serialize
+    docstring: ''
+    line_number: 76
+    type: class
+    direct_bases: []
+    init_signature:
+      parameters:
+      - name: self
+        kind: positional_or_keyword
+        type_imports: []
+      - name: path
+        kind: positional_or_keyword
+        type_annotation: PathLike
+        type_imports:
+        - os.PathLike
+      - name: yaml_path
+        kind: positional_or_keyword
+        type_annotation: str | None
+        type_imports: []
+        default:
+          value_repr: None
+          is_factory: false
+      - name: out_file
+        kind: positional_or_keyword
+        type_imports: []
+        default:
+          value_repr: ''''''
+          is_factory: false
+      - name: width
+        kind: positional_or_keyword
+        type_imports: []
+        default:
+          value_repr: '1000'
+          is_factory: false
+      - name: read_only
+        kind: positional_or_keyword
+        type_imports: []
+        default:
+          value_repr: 'False'
+          is_factory: false
+      return_type_imports: []
+  - name: multiline_pipe_style
+    module_path: serialize.yaml_serialize
+    docstring: ''
+    line_number: 196
+    type: class
+    direct_bases: []
+    init_signature:
+      parameters:
+      - name: self
+        kind: positional_only
+        type_imports: []
+      - name: args
+        kind: var_positional
+        type_imports: []
+      - name: kwargs
+        kind: var_keyword
+        type_imports: []
+      return_type_imports: []
+  - name: no_yaml_anchors
+    module_path: serialize.yaml_serialize
+    docstring: "Context manager to disable YAML anchors/aliases during serialization.\n\nThis prevents duplicate objects from being represented as anchors (*id001)\nand aliases (&id001), which can happen with datetime objects or other\nrepeated values in the data structure.\n\nUsage:\n    with no_yaml_anchors():\n        yaml_str = dump(data, \"yaml\")\n"
+    line_number: 215
+    type: class
+    direct_bases: []
+    init_signature:
+      parameters:
+      - name: self
+        kind: positional_only
+        type_imports: []
+      - name: args
+        kind: var_positional
+        type_imports: []
+      - name: kwargs
+        kind: var_keyword
+        type_imports: []
+      return_type_imports: []
+dumped_at: 2026-01-18 20:08:14.938611+00:00

@@ -16,7 +16,7 @@
 <!-- === DO_NOT_EDIT: pkg-ext entity_def === -->
 ### class: `Entity`
 - [source](../../model_lib/model_base.py#L60)
-> **Since:** unreleased
+> **Since:** 0.100.0
 
 ```python
 class Entity(_Model):
@@ -26,7 +26,7 @@ class Entity(_Model):
 <!-- === DO_NOT_EDIT: pkg-ext event_def === -->
 ### class: `Event`
 - [source](../../model_lib/model_base.py#L56)
-> **Since:** unreleased
+> **Since:** 0.100.0
 
 ```python
 class Event(_Model):

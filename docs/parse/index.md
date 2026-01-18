@@ -17,7 +17,7 @@
 <!-- === DO_NOT_EDIT: pkg-ext parse_dict_def === -->
 ### function: `parse_dict`
 - [source](../../model_lib/serialize/parse.py#L132)
-> **Since:** unreleased
+> **Since:** 0.100.0
 
 ```python
 def parse_dict(payload: ~RegisteredPayloadT | str | bytes | Path | dict | list, format: FileFormat | str = 'json') -> dict:
@@ -27,7 +27,7 @@ def parse_dict(payload: ~RegisteredPayloadT | str | bytes | Path | dict | list, 
 <!-- === DO_NOT_EDIT: pkg-ext parse_list_def === -->
 ### function: `parse_list`
 - [source](../../model_lib/serialize/parse.py#L125)
-> **Since:** unreleased
+> **Since:** 0.100.0
 
 ```python
 def parse_list(payload: ~RegisteredPayloadT | str | bytes | Path | dict | list, format: FileFormat | str = 'json') -> list:
@@ -37,7 +37,7 @@ def parse_list(payload: ~RegisteredPayloadT | str | bytes | Path | dict | list, 
 <!-- === DO_NOT_EDIT: pkg-ext parse_model_def === -->
 ### function: `parse_model`
 - [source](../../model_lib/serialize/parse.py#L50)
-> **Since:** unreleased
+> **Since:** 0.100.0
 
 ```python
 def parse_model(payload: ~RegisteredPayloadT | str | bytes | Path | dict | list, t: type[~T] | None = None, format: FileFormat | str = 'json', extra_kwargs: Mapping[str, Any] | None = None) -> ~T:
@@ -47,7 +47,7 @@ def parse_model(payload: ~RegisteredPayloadT | str | bytes | Path | dict | list,
 <!-- === DO_NOT_EDIT: pkg-ext parse_payload_def === -->
 ### function: `parse_payload`
 - [source](../../model_lib/serialize/parse.py#L139)
-> **Since:** unreleased
+> **Since:** 0.100.0
 
 ```python
 def parse_payload(payload: object, format = 'json') -> dict | list:

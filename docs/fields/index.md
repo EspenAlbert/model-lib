@@ -18,7 +18,7 @@
 <!-- === DO_NOT_EDIT: pkg-ext basemodelt_def === -->
 ### type_alias: `BaseModelT`
 - [source](../../model_lib/pydantic_utils.py)
-> **Since:** unreleased
+> **Since:** 0.100.0
 
 ```python
 BaseModelT = ~BaseModelT
@@ -71,7 +71,7 @@ details.
 <!-- === DO_NOT_EDIT: pkg-ext copy_and_validate_def === -->
 ### function: `copy_and_validate`
 - [source](../../model_lib/pydantic_utils.py#L103)
-> **Since:** unreleased
+> **Since:** 0.100.0
 
 ```python
 def copy_and_validate(model: ~BaseModelT, **updates) -> ~BaseModelT:
@@ -81,7 +81,7 @@ def copy_and_validate(model: ~BaseModelT, **updates) -> ~BaseModelT:
 <!-- === DO_NOT_EDIT: pkg-ext env_var_name_def === -->
 ### function: `env_var_name`
 - [source](../../model_lib/pydantic_utils.py#L13)
-> **Since:** unreleased
+> **Since:** 0.100.0
 
 ```python
 def env_var_name(settings: BaseSettings | type[BaseSettings], field_name: str) -> str:
@@ -91,7 +91,7 @@ def env_var_name(settings: BaseSettings | type[BaseSettings], field_name: str) -
 <!-- === DO_NOT_EDIT: pkg-ext env_var_names_def === -->
 ### function: `env_var_names`
 - [source](../../model_lib/pydantic_utils.py#L31)
-> **Since:** unreleased
+> **Since:** 0.100.0
 
 ```python
 def env_var_names(settings: BaseSettings | type[BaseSettings]) -> list[str]:
@@ -101,7 +101,7 @@ def env_var_names(settings: BaseSettings | type[BaseSettings]) -> list[str]:
 <!-- === DO_NOT_EDIT: pkg-ext field_names_def === -->
 ### function: `field_names`
 - [source](../../model_lib/pydantic_utils.py#L128)
-> **Since:** unreleased
+> **Since:** 0.100.0
 
 ```python
 def field_names(model_type: type[BaseModel] | BaseModel) -> list[str]:
