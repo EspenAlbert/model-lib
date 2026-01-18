@@ -24,6 +24,8 @@ groups:
   - pydantic_utils
   owned_refs:
   - pydantic_utils.BaseModelT
+  - pydantic_utils.UtcDatetime
+  - pydantic_utils.UtcDatetimeMs
   - pydantic_utils.copy_and_validate
   - pydantic_utils.env_var_name
   - pydantic_utils.env_var_names

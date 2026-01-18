@@ -1,0 +1,11 @@
+name: UtcDatetime
+ts: 2026-01-18 21:15:02.276560+00:00
+type: make_public
+details: created in pydantic_utils.py
+group: fields
+---
+name: UtcDatetimeMs
+ts: 2026-01-18 21:15:09.788326+00:00
+type: make_public
+details: created in pydantic_utils.py
+group: fields

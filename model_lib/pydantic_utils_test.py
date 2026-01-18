@@ -1,4 +1,4 @@
-from datetime import timedelta, timezone
+from datetime import UTC, timedelta
 
 import pydantic
 from pydantic import BaseModel, Field, model_serializer
@@ -37,7 +37,7 @@ def test_timedelta_dumpable():
         td: timedelta
 
     model = _MyModelTimedelta(td=timedelta(hours=1, weeks=1))
-    dumped = dump(model, FileFormat.yaml)
+    dumped = dump.dump_as_str(model, FileFormat.yaml)
     model2 = parse_model(dumped, format=FileFormat.yaml, t=_MyModelTimedelta)
     assert model == model2
 
@@ -136,7 +136,7 @@ def test_UtcDatetime():
     dt_no_timezone = parse_dt("2023-08-16T16:42:14")
     assert dt_no_timezone.tzinfo is None
     model = _TimeModel(utc=dt_no_timezone, utc_ms=dt_no_timezone)
-    assert model.utc.tzinfo == timezone.utc
+    assert model.utc.tzinfo == UTC
 
 
 def test_UtcDatetimeMs():
@@ -151,5 +151,5 @@ def test_dumping_time_model():
     model = _TimeModel(utc=dt, utc_ms=dt, td=30)  # type: ignore
     assert model.td == timedelta(seconds=30)
     expected_json = '{"utc":"2023-08-16T16:42:14.123456Z","utc_ms":"2023-08-16T16:42:14.123000Z","td":"PT30S"}'
-    assert dump(model, "json") == expected_json
+    assert dump.dump_as_str(model, "json") == expected_json
     assert parse_model(expected_json, _TimeModel) == model

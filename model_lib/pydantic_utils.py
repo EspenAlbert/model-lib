@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from typing import Any, List, Type, TypeVar, Union
 
 from pydantic import AfterValidator, BaseModel, TypeAdapter, conint
@@ -10,9 +10,7 @@ from typing_extensions import Annotated, TypeAlias
 from zero_3rdparty.datetime_utils import as_ms_precision_utc, ensure_tz
 
 
-def env_var_name(
-    settings: Union[BaseSettings, Type[BaseSettings]], field_name: str
-) -> str:
+def env_var_name(settings: Union[BaseSettings, Type[BaseSettings]], field_name: str) -> str:
     model_field = model_fields(settings).get(field_name)
     assert model_field, f"{settings}.{field_name} NOT FOUND"
     from pydantic_settings.sources import EnvSettingsSource
@@ -65,23 +63,15 @@ def cls_defaults(model: Type[BaseModel]) -> dict:
     }
 
 
-def cls_defaults_required_as(
-    model: Type[BaseModel], required_value: str = "CHANGE_ME"
-) -> dict:
+def cls_defaults_required_as(model: Type[BaseModel], required_value: str = "CHANGE_ME") -> dict:
     defaults = cls_defaults(model)
     return {key: defaults.get(key, required_value) for key in model_fields(model)}
 
 
-def cls_local_defaults_required_as(
-    model: Type[BaseModel], required_value: str = "CHANGE_ME"
-) -> dict:
+def cls_local_defaults_required_as(model: Type[BaseModel], required_value: str = "CHANGE_ME") -> dict:
     local_hints = model.__annotations__
     defaults = cls_defaults(model)
-    return {
-        key: defaults.get(key, required_value)
-        for key in model.__fields__
-        if key in local_hints
-    }
+    return {key: defaults.get(key, required_value) for key in model.__fields__ if key in local_hints}
 
 
 T = TypeVar("T")
@@ -109,7 +99,7 @@ parse_dt = parse_datetime
 
 def ensure_timezone(value: datetime):
     if not value.tzinfo:
-        return value.replace(tzinfo=timezone.utc)
+        return value.replace(tzinfo=UTC)
     return value
 
 
