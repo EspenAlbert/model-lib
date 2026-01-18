@@ -3,24 +3,42 @@
 # === OK_EDIT: path-sync header ===
 [project]
 name = "model-lib"
-version = "0.1.0"
-description = "Package description"
+version = "0.99.0"
+description = "Pydantic model utilities for serialization and settings"
 requires-python = ">=3.13"
 license = "MIT"
 license-files = ["LICENSE"]
-dependencies = []
+readme = "README.md"
+authors = [{ name = "EspenAlbert", email = "espen.albert1@gmail.com" }]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+]
+dependencies = [
+  "pydantic>=2.11",
+  "pydantic-settings>=2.8",
+  "pyyaml>=6.0.2",
+  "zero-3rdparty",
+]
+
+[project.optional-dependencies]
+toml = ["tomli-w~=1.1.0"]
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.sdist]
-include = ["*/**/*.py", "*/py.typed"]
+include = ["model_lib/*.py", "model_lib/**/*.py", "model_lib/py.typed"]
 exclude = [
   "*_examples.py",
   "*_test.py",
   "conftest.py",
   "test_*.json",
+  "*_test/*.json",
+  "test_*.yaml",
+  "*_test/*.yaml",
 ]
 
 # === DO_NOT_EDIT: path-sync pkg-ext ===
@@ -65,6 +83,12 @@ dev = [
   "pytest>=9.0",
   "pytest-cov>=7.0",
   "ruff>=0.14",
+  "xdoctest>=1.2",
+  "freezegun>=1.5",
+  "pytest-regressions>=2.6",
+  "pytest-datadir>=1.5",
+  "pytest-subtests>=0.13",
+  "tomli-w>=1.1",
 ]
 # === OK_EDIT: path-sync dev ===
 
