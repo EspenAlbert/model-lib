@@ -13,6 +13,11 @@ theme:
 # === DO_NOT_EDIT: pkg-ext nav ===
 nav:
   - Home: index.md
+  - model_lib: _root/index.md
+  - dump: dump/index.md
+  - fields: fields/index.md
+  - parse: parse/index.md
+  - yaml: yaml/index.md
 # === OK_EDIT: pkg-ext nav ===
 
 # === DO_NOT_EDIT: pkg-ext extensions ===

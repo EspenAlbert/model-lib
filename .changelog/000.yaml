@@ -109,9 +109,9 @@ full_path: serialize.parse.register_parser
 ---
 name: dump
 ts: 2026-01-18 19:32:11.705552+00:00
-details: created in serialize/json_serialize.py
-group: fields
 type: make_public
+details: created in serialize/json_serialize.py
+group: dump
 ---
 name: pretty_dump
 ts: 2026-01-18 19:32:11.705786+00:00
@@ -130,13 +130,15 @@ full_path: serialize.dump.dump_as_toml_str_compact
 ---
 name: dump_as_dict
 ts: 2026-01-18 19:33:53.222230+00:00
-type: keep_private
-full_path: serialize.dump.dump_as_dict
+type: make_public
+details: created in serialize/json_serialize.py
+group: dump
 ---
 name: dump_as_list
 ts: 2026-01-18 19:33:53.222240+00:00
-type: keep_private
-full_path: serialize.dump.dump_as_list
+type: make_public
+details: created in serialize/json_serialize.py
+group: dump
 ---
 name: dump_as_type_dict_list
 ts: 2026-01-18 19:33:53.222248+00:00
