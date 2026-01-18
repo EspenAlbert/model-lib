@@ -107,12 +107,6 @@ ts: 2026-01-18 19:32:01.102665+00:00
 type: keep_private
 full_path: serialize.parse.register_parser
 ---
-name: dump
-ts: 2026-01-18 19:32:11.705552+00:00
-type: make_public
-details: created in serialize/json_serialize.py
-group: dump
----
 name: pretty_dump
 ts: 2026-01-18 19:32:11.705786+00:00
 type: keep_private
@@ -592,3 +586,15 @@ name: DockerOrClsDefDefault
 ts: 2026-01-18 19:36:38.065908+00:00
 type: keep_private
 full_path: base_settings.DockerOrClsDefDefault
+---
+name: dump_as_str
+ts: 2026-01-18 19:59:12.159700+00:00
+type: make_public
+details: created in serialize/dump.py
+full_path: serialize.dump.dump_as_str
+group: dump
+---
+name: dump
+ts: 2026-01-18 20:03:42.277737+00:00
+type: keep_private
+full_path: serialize.json_serialize.dump

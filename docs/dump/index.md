@@ -27,7 +27,6 @@ class IgnoreFalsy(BaseModel):
 <!-- === DO_NOT_EDIT: pkg-ext dump_def === -->
 ### function: `dump`
 - [source](../../model_lib/serialize/json_serialize.py#L19)
-> **Since:** unreleased
 
 ```python
 def dump(instance: Any) -> str:
