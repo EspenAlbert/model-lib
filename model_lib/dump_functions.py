@@ -4,7 +4,7 @@ import pydantic
 from pydantic import BaseModel, RootModel, model_serializer
 from zero_3rdparty.iter_utils import ignore_falsy
 
-from model_lib import register_dumper
+from model_lib.model_dump import register_dumper
 
 
 def base_model_dumper(model: BaseModel):
