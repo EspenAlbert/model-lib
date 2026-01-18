@@ -6,7 +6,7 @@ from model_lib.constants import (
     MODEL_DUMP_KEY,
     FileFormat,
 )
-from model_lib.serialize.dump import dump, dump_with_metadata
+from model_lib.serialize.dump import dump_as_str, dump_with_metadata
 from model_lib.serialize.parse import parse_model_metadata
 
 
@@ -47,7 +47,7 @@ def test_parse_with_model_name_backup():
         METADATA_MODEL_NAME_FIELD: "_UNKNOWN",
         METADATA_MODEL_NAME_BACKUP_FIELD: _MyModelWithAge.__name__,
     }
-    dumped = dump({MODEL_DUMP_KEY: model_dict, METADATA_DUMP_KEY: metadata}, FileFormat.json)
+    dumped = dump_as_str({MODEL_DUMP_KEY: model_dict, METADATA_DUMP_KEY: metadata}, FileFormat.json)
     model_back, metadata_back = parse_model_metadata(dumped)
     assert model_back == model
     assert metadata_back == metadata

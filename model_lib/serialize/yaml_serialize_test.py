@@ -4,8 +4,9 @@ from datetime import UTC, datetime
 import pytest
 import yaml
 
-from model_lib import Entity, Event, register_dumper
-from model_lib.serialize import dump
+from model_lib import Entity, Event
+from model_lib.model_dump import register_dumper
+from model_lib.serialize.dump import dump_as_str
 from model_lib.serialize.yaml_serialize import (
     no_timestamp_conversion,
     no_yaml_anchors,
@@ -33,7 +34,7 @@ class _MyEvent(Event):
 
 @pytest.mark.parametrize("cls", [_MyClass, _MyEntity, _MyEvent])
 def test_safe_dump(cls):
-    dumped = dump(cls(name="espen", age=99), "yaml")
+    dumped = dump_as_str(cls(name="espen", age=99), "yaml")
     assert dumped == "name: espen\nage: 99\n"
 
 
@@ -47,10 +48,10 @@ def test_no_yaml_anchors():
     }
 
     # Without context manager, YAML may create anchors for duplicate objects
-    dumped_without_context = dump(data, "yaml")
+    dumped_without_context = dump_as_str(data, "yaml")
     # With context manager, anchors should be prevented
     with no_yaml_anchors():
-        dumped_with_context = dump(data, "yaml")
+        dumped_with_context = dump_as_str(data, "yaml")
 
     # Check if anchors were created without context manager
     has_anchors_without = "*id" in dumped_without_context or "&id" in dumped_without_context

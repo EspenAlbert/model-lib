@@ -6,9 +6,9 @@ from model_lib.serialize.base_64 import (
     generate_secret_base_64,
 )
 from model_lib.serialize.dump import (
-    dump,
     dump_as_dict,
     dump_as_list,
+    dump_as_str,
     dump_as_type_dict,
     dump_as_type_dict_list,
     dump_safe,
@@ -25,9 +25,9 @@ from model_lib.serialize.parse import (
 
 __all__ = (
     "decode_base64",
-    "dump",
     "dump_as_dict",
     "dump_as_list",
+    "dump_as_str",
     "dump_as_type_dict",
     "dump_as_type_dict_list",
     "dump_safe",

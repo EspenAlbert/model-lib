@@ -3,11 +3,11 @@ from functools import cached_property
 import pytest
 from zero_3rdparty.enum_utils import StrEnum
 
-from model_lib import FileFormat
-from model_lib import dump as dump_with_extension
+from model_lib.constants import FileFormat
 from model_lib.errors import DumperExist, NoDumper
 from model_lib.model_base import Event
 from model_lib.model_dump import dump, register_dumper
+from model_lib.serialize.dump import dump_as_str
 
 
 def test_register_and_remove_call():
@@ -67,12 +67,12 @@ class _MyEnum(StrEnum):
 
 
 def test_dumping_enum_to_yaml():
-    assert dump_with_extension(dict(key=_MyEnum.A), "yaml") == "key: A\n"
+    assert dump_as_str(dict(key=_MyEnum.A), "yaml") == "key: A\n"
 
 
 def test_pydantic_json_dump():
     model = _EventWithCachedProperty(first_name="first", last_name="pydantic")
     assert model.full_name == "first pydantic"
     expected = '{"first_name":"first","last_name":"pydantic"}'
-    assert dump_with_extension(model, "json_pydantic") == expected
-    assert dump_with_extension(model, FileFormat.pydantic_json) == expected
+    assert dump_as_str(model, "json_pydantic") == expected
+    assert dump_as_str(model, FileFormat.pydantic_json) == expected

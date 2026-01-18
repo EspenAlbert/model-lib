@@ -20,7 +20,7 @@ from model_lib.pydantic_utils import (
     utc_datetime,
     utc_datetime_ms,
 )
-from model_lib.serialize import dump, parse_model
+from model_lib.serialize import dump_as_str, parse_model
 
 
 class _ExampleModel(BaseModel):
@@ -37,7 +37,7 @@ def test_timedelta_dumpable():
         td: timedelta
 
     model = _MyModelTimedelta(td=timedelta(hours=1, weeks=1))
-    dumped = dump(model, FileFormat.yaml)
+    dumped = dump_as_str(model, FileFormat.yaml)
     model2 = parse_model(dumped, format=FileFormat.yaml, t=_MyModelTimedelta)
     assert model == model2
 
@@ -151,5 +151,5 @@ def test_dumping_time_model():
     model = _TimeModel(utc=dt, utc_ms=dt, td=30)  # type: ignore
     assert model.td == timedelta(seconds=30)
     expected_json = '{"utc":"2023-08-16T16:42:14.123456Z","utc_ms":"2023-08-16T16:42:14.123000Z","td":"PT30S"}'
-    assert dump(model, "json") == expected_json
+    assert dump_as_str(model, "json") == expected_json
     assert parse_model(expected_json, _TimeModel) == model
