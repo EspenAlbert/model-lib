@@ -1,4 +1,4 @@
-from datetime import UTC, timedelta
+from datetime import timedelta, timezone
 
 import pydantic
 from pydantic import BaseModel, Field, model_serializer
@@ -8,6 +8,8 @@ from zero_3rdparty.iter_utils import ignore_falsy
 from model_lib import Event
 from model_lib.constants import FileFormat
 from model_lib.pydantic_utils import (
+    UtcDatetime,
+    UtcDatetimeMs,
     cls_defaults,
     cls_defaults_required_as,
     cls_local_defaults_required_as,
@@ -17,10 +19,8 @@ from model_lib.pydantic_utils import (
     has_path,
     parse_dt,
     parse_object_as,
-    utc_datetime,
-    utc_datetime_ms,
 )
-from model_lib.serialize import dump_as_str, parse_model
+from model_lib.serialize import dump, parse_model
 
 
 class _ExampleModel(BaseModel):
@@ -37,7 +37,7 @@ def test_timedelta_dumpable():
         td: timedelta
 
     model = _MyModelTimedelta(td=timedelta(hours=1, weeks=1))
-    dumped = dump_as_str(model, FileFormat.yaml)
+    dumped = dump(model, FileFormat.yaml)
     model2 = parse_model(dumped, format=FileFormat.yaml, t=_MyModelTimedelta)
     assert model == model2
 
@@ -127,19 +127,19 @@ def test_has_path():
 
 
 class _TimeModel(Event):
-    utc: utc_datetime
-    utc_ms: utc_datetime_ms
+    utc: UtcDatetime
+    utc_ms: UtcDatetimeMs
     td: timedelta = Field(default_factory=lambda: timedelta(seconds=0))
 
 
-def test_utc_datetime():
+def test_UtcDatetime():
     dt_no_timezone = parse_dt("2023-08-16T16:42:14")
     assert dt_no_timezone.tzinfo is None
     model = _TimeModel(utc=dt_no_timezone, utc_ms=dt_no_timezone)
-    assert model.utc.tzinfo == UTC
+    assert model.utc.tzinfo == timezone.utc
 
 
-def test_utc_datetime_ms():
+def test_UtcDatetimeMs():
     dt_no_timezone = parse_dt("2023-08-16T16:42:14.123456")
     assert dt_no_timezone.microsecond % 1000 != 0
     model = _TimeModel(utc=dt_no_timezone, utc_ms=dt_no_timezone)
@@ -151,5 +151,5 @@ def test_dumping_time_model():
     model = _TimeModel(utc=dt, utc_ms=dt, td=30)  # type: ignore
     assert model.td == timedelta(seconds=30)
     expected_json = '{"utc":"2023-08-16T16:42:14.123456Z","utc_ms":"2023-08-16T16:42:14.123000Z","td":"PT30S"}'
-    assert dump_as_str(model, "json") == expected_json
+    assert dump(model, "json") == expected_json
     assert parse_model(expected_json, _TimeModel) == model
