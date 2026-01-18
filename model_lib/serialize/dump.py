@@ -5,7 +5,6 @@ from collections.abc import Iterable, Mapping
 from contextlib import suppress
 from typing import Any, Callable
 
-from model_lib import ModelT
 from model_lib.constants import (
     METADATA_DUMP_KEY,
     METADATA_MODEL_NAME_FIELD,
@@ -13,6 +12,7 @@ from model_lib.constants import (
 )
 from model_lib.errors import FileFormat
 from model_lib.metadata.metadata_dump import dump_metadata
+from model_lib.model_base import ModelT
 from model_lib.model_dump import registered_types
 from model_lib.pydantic_utils import model_json
 from model_lib.serialize.json_serialize import dump as _dump_json
@@ -52,9 +52,9 @@ _payload_dumpers: dict[FileFormat | str, Callable[[Any], str]] = {
 }
 
 
-def dump(instance: object, format: FileFormat | str) -> str:
+def dump_as_str(instance: object, format: FileFormat | str) -> str:
     """
-    >>> dump('', "json")
+    >>> dump_as_str('', "json")
     ''
     """
     if instance == "":
@@ -75,16 +75,16 @@ def dump_as_list(instance: Iterable[ModelT]) -> list:
 
 
 def dump_as_type_dict_list(instances: Iterable[ModelT], format: FileFormat) -> str:
-    return dump([{type(instance).__name__: instance} for instance in instances], format)
+    return dump_as_str([{type(instance).__name__: instance} for instance in instances], format)
 
 
 def dump_as_type_dict(instances: Iterable[ModelT], format: FileFormat) -> str:
-    return dump({type(instance).__name__: instance for instance in instances}, format)
+    return dump_as_str({type(instance).__name__: instance for instance in instances}, format)
 
 
 def dump_safe(message: dict | object, format: FileFormat | str = FileFormat.json) -> str:
     try:
-        return dump(message, format)
+        return dump_as_str(message, format)
     except TypeError as e:
         # Type is not JSON serializable: TestApp
         logger.warning(e)
@@ -99,7 +99,7 @@ def dump_safe(message: dict | object, format: FileFormat | str = FileFormat.json
                 key: value if is_safe(type(value)) else str(value)
                 for key, value in message.items()  # type: ignore
             }
-            return dump(message_safe, format=format)
+            return dump_as_str(message_safe, format=format)
         # noinspection PyUnreachableCode
         logger.critical(f"failed to dump {str(message)}")
     except Exception as e:
@@ -126,4 +126,4 @@ def dump_with_metadata(
     dumped_metadata[METADATA_MODEL_NAME_FIELD] = model_name
     if metadata:
         dumped_metadata.update(metadata)
-    return dump({_model_field: model, _metadata_field: dumped_metadata}, format)
+    return dump_as_str({_model_field: model, _metadata_field: dumped_metadata}, format)

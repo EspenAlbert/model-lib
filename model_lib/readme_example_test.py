@@ -4,16 +4,11 @@ from typing import Union
 from freezegun import freeze_time
 from pydantic import Field
 
-from model_lib import (
-    Entity,
-    Event,
-    FileFormat,
-    dump,
-    dump_with_metadata,
-    parse_model,
-    register_dumper,
-)
-from model_lib.serialize.parse import parse_payload, register_parser
+from model_lib import Entity, Event
+from model_lib.constants import FileFormat
+from model_lib.model_dump import register_dumper
+from model_lib.serialize.dump import dump_as_str, dump_with_metadata
+from model_lib.serialize.parse import parse_model, parse_payload, register_parser
 
 dump_formats = list(FileFormat)
 expected_dump_formats: list[str] = [
@@ -62,10 +57,10 @@ def test_show_dumping():
     with freeze_time("2020-01-01"):
         birthday = Birthday(date=datetime.utcnow())
         # can dump non-primitives e.g., datetime
-        assert dump(birthday, "json") == '{"date":"2020-01-01T00:00:00"}'
+        assert dump_as_str(birthday, "json") == '{"date":"2020-01-01T00:00:00"}'
     person = Person(age=99, name="espen")
-    assert dump(person, "yaml") == "name: espen\nage: 99\n"
-    assert dump(person, "pretty_json") == _pretty_person
+    assert dump_as_str(person, "yaml") == "name: espen\nage: 99\n"
+    assert dump_as_str(person, "pretty_json") == _pretty_person
 
 
 _metadata_dump = """\
@@ -121,6 +116,6 @@ register_parser(CustomKafkaPayload, custom_parse_kafka)
 
 def test_custom_dump():
     instance = CustomDumping("Espen", "Python")
-    assert dump(instance, "json") == '{"full_name":"Espen Python"}'
+    assert dump_as_str(instance, "json") == '{"full_name":"Espen Python"}'
     payload = CustomKafkaPayload(body='{"first_name": "Espen", "last_name": "Python"}', topic="some-topic")
     assert parse_model(payload, t=CustomDumping) == instance

@@ -1,4 +1,7 @@
-from model_lib import Event, FileFormat, dump, parse_model, parse_payload
+from model_lib import Event
+from model_lib.constants import FileFormat
+from model_lib.serialize.dump import dump_as_str
+from model_lib.serialize.parse import parse_model, parse_payload
 from model_lib.serialize.toml_serialize import add_line_breaks
 
 _toml_example = """\
@@ -80,7 +83,7 @@ model_example = _TomlModel(name="I am toml!", child=_TomlChild(age=2))
 
 def test_dump_toml():
     instance = model_example
-    dumped = dump(instance, "toml")
+    dumped = dump_as_str(instance, "toml")
     assert dumped == f"{_SOME_TOML}"
 
 
@@ -117,9 +120,9 @@ def test_add_line_breaks():
 
 def test_toml_compact(file_regression):
     payload = parse_payload(_example, FileFormat.toml_compact)
-    file_regression.check(dump(payload, FileFormat.toml_compact), extension=".toml")
+    file_regression.check(dump_as_str(payload, FileFormat.toml_compact), extension=".toml")
 
 
 def test_toml_normal(file_regression):
     payload = parse_payload(_example, FileFormat.toml_compact)
-    file_regression.check(dump(payload, FileFormat.toml), extension=".toml")
+    file_regression.check(dump_as_str(payload, FileFormat.toml), extension=".toml")
