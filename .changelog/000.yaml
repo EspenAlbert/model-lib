@@ -109,10 +109,484 @@ full_path: serialize.parse.register_parser
 ---
 name: dump
 ts: 2026-01-18 19:32:11.705552+00:00
-type: keep_private
-full_path: serialize.json_serialize.dump
+details: created in serialize/json_serialize.py
+group: fields
+type: make_public
 ---
 name: pretty_dump
 ts: 2026-01-18 19:32:11.705786+00:00
 type: keep_private
 full_path: serialize.json_serialize.pretty_dump
+---
+name: dump_as_toml_str
+ts: 2026-01-18 19:33:53.221757+00:00
+type: keep_private
+full_path: serialize.dump.dump_as_toml_str
+---
+name: dump_as_toml_str_compact
+ts: 2026-01-18 19:33:53.222213+00:00
+type: keep_private
+full_path: serialize.dump.dump_as_toml_str_compact
+---
+name: dump_as_dict
+ts: 2026-01-18 19:33:53.222230+00:00
+type: keep_private
+full_path: serialize.dump.dump_as_dict
+---
+name: dump_as_list
+ts: 2026-01-18 19:33:53.222240+00:00
+type: keep_private
+full_path: serialize.dump.dump_as_list
+---
+name: dump_as_type_dict_list
+ts: 2026-01-18 19:33:53.222248+00:00
+type: keep_private
+full_path: serialize.dump.dump_as_type_dict_list
+---
+name: dump_as_type_dict
+ts: 2026-01-18 19:33:53.222257+00:00
+type: keep_private
+full_path: serialize.dump.dump_as_type_dict
+---
+name: dump_safe
+ts: 2026-01-18 19:33:53.222265+00:00
+type: keep_private
+full_path: serialize.dump.dump_safe
+---
+name: dump_with_metadata
+ts: 2026-01-18 19:33:53.222274+00:00
+type: keep_private
+full_path: serialize.dump.dump_with_metadata
+---
+name: encode_base64
+ts: 2026-01-18 19:34:03.471283+00:00
+type: keep_private
+full_path: serialize.base_64.encode_base64
+---
+name: decode_base64
+ts: 2026-01-18 19:34:03.471352+00:00
+type: keep_private
+full_path: serialize.base_64.decode_base64
+---
+name: generate_secret_base_64
+ts: 2026-01-18 19:34:03.471365+00:00
+type: keep_private
+full_path: serialize.base_64.generate_secret_base_64
+---
+name: set_metadata_dumpers
+ts: 2026-01-18 19:34:05.466993+00:00
+type: keep_private
+full_path: metadata.metadata_dump.set_metadata_dumpers
+---
+name: add_metadata_dumper
+ts: 2026-01-18 19:34:05.467020+00:00
+type: keep_private
+full_path: metadata.metadata_dump.add_metadata_dumper
+---
+name: get_metadata_dumpers
+ts: 2026-01-18 19:34:05.467026+00:00
+type: keep_private
+full_path: metadata.metadata_dump.get_metadata_dumpers
+---
+name: dump_metadata
+ts: 2026-01-18 19:34:05.467030+00:00
+type: keep_private
+full_path: metadata.metadata_dump.dump_metadata
+---
+name: identity
+ts: 2026-01-18 19:34:13.801721+00:00
+type: keep_private
+full_path: metadata.context_dict.identity
+---
+name: copy_value
+ts: 2026-01-18 19:34:13.801746+00:00
+type: keep_private
+full_path: metadata.context_dict.copy_value
+---
+name: set_copy_behavior
+ts: 2026-01-18 19:34:13.801751+00:00
+type: keep_private
+full_path: metadata.context_dict.set_copy_behavior
+---
+name: get_copy_behavior
+ts: 2026-01-18 19:34:13.801755+00:00
+type: keep_private
+full_path: metadata.context_dict.get_copy_behavior
+---
+name: get_context_dict
+ts: 2026-01-18 19:34:13.801760+00:00
+type: keep_private
+full_path: metadata.context_dict.get_context_dict
+---
+name: set_context_dict
+ts: 2026-01-18 19:34:13.801764+00:00
+type: keep_private
+full_path: metadata.context_dict.set_context_dict
+---
+name: force_new_context_dict_on_task
+ts: 2026-01-18 19:34:13.801769+00:00
+type: keep_private
+full_path: metadata.context_dict.force_new_context_dict_on_task
+---
+name: create_task_copy_context
+ts: 2026-01-18 19:34:13.801773+00:00
+type: keep_private
+full_path: metadata.context_dict.create_task_copy_context
+---
+name: clear_context_dict
+ts: 2026-01-18 19:34:13.801778+00:00
+type: keep_private
+full_path: metadata.context_dict.clear_context_dict
+---
+name: get_context_instance
+ts: 2026-01-18 19:34:13.801781+00:00
+type: keep_private
+full_path: metadata.context_dict.get_context_instance
+---
+name: get_context_instance_or_none
+ts: 2026-01-18 19:34:13.801785+00:00
+type: keep_private
+full_path: metadata.context_dict.get_context_instance_or_none
+---
+name: set_context_instance
+ts: 2026-01-18 19:34:13.801789+00:00
+type: keep_private
+full_path: metadata.context_dict.set_context_instance
+---
+name: pop_context_instance
+ts: 2026-01-18 19:34:13.801793+00:00
+type: keep_private
+full_path: metadata.context_dict.pop_context_instance
+---
+name: model_name_to_t
+ts: 2026-01-18 19:34:15.619337+00:00
+type: keep_private
+full_path: model_base.model_name_to_t
+---
+name: fields
+ts: 2026-01-18 19:35:05.467433+00:00
+type: group_module
+module_path: pydantic_utils
+---
+name: env_var_name
+ts: 2026-01-18 19:35:05.468586+00:00
+type: make_public
+details: created in pydantic_utils.py
+group: fields
+---
+name: env_var_names
+ts: 2026-01-18 19:35:05.469691+00:00
+type: make_public
+details: created in pydantic_utils.py
+group: fields
+---
+name: copy_and_validate
+ts: 2026-01-18 19:35:05.470689+00:00
+type: make_public
+details: created in pydantic_utils.py
+group: fields
+---
+name: field_names
+ts: 2026-01-18 19:35:05.471655+00:00
+type: make_public
+details: created in pydantic_utils.py
+group: fields
+---
+name: parse_object_as
+ts: 2026-01-18 19:35:05.471728+00:00
+type: keep_private
+full_path: pydantic_utils.parse_object_as
+---
+name: get_field_type
+ts: 2026-01-18 19:35:05.471752+00:00
+type: keep_private
+full_path: pydantic_utils.get_field_type
+---
+name: model_fields
+ts: 2026-01-18 19:35:05.471760+00:00
+type: keep_private
+full_path: pydantic_utils.model_fields
+---
+name: model_dump
+ts: 2026-01-18 19:35:05.471766+00:00
+type: keep_private
+full_path: pydantic_utils.model_dump
+---
+name: model_json
+ts: 2026-01-18 19:35:05.471773+00:00
+type: keep_private
+full_path: pydantic_utils.model_json
+---
+name: cls_defaults
+ts: 2026-01-18 19:35:05.471779+00:00
+type: keep_private
+full_path: pydantic_utils.cls_defaults
+---
+name: cls_defaults_required_as
+ts: 2026-01-18 19:35:05.471785+00:00
+type: keep_private
+full_path: pydantic_utils.cls_defaults_required_as
+---
+name: cls_local_defaults_required_as
+ts: 2026-01-18 19:35:05.471791+00:00
+type: keep_private
+full_path: pydantic_utils.cls_local_defaults_required_as
+---
+name: has_path
+ts: 2026-01-18 19:35:05.471798+00:00
+type: keep_private
+full_path: pydantic_utils.has_path
+---
+name: ensure_timezone
+ts: 2026-01-18 19:35:05.471804+00:00
+type: keep_private
+full_path: pydantic_utils.ensure_timezone
+---
+name: parse_dt_utc
+ts: 2026-01-18 19:35:05.471810+00:00
+type: keep_private
+full_path: pydantic_utils.parse_dt_utc
+---
+name: BaseModelT
+ts: 2026-01-18 19:35:05.478004+00:00
+type: make_public
+details: exposed in the function pydantic_utils.copy_and_validate
+group: fields
+---
+name: iter_tags
+ts: 2026-01-18 19:35:09.001315+00:00
+type: keep_private
+full_path: metadata.metadata_fields.iter_tags
+---
+name: update_metadata
+ts: 2026-01-18 19:35:11.181481+00:00
+type: keep_private
+full_path: metadata.metadata.update_metadata
+---
+name: current_metadata
+ts: 2026-01-18 19:35:11.181536+00:00
+type: keep_private
+full_path: metadata.metadata.current_metadata
+---
+name: metadata_from_context_dict
+ts: 2026-01-18 19:35:11.181546+00:00
+type: keep_private
+full_path: metadata.metadata.metadata_from_context_dict
+---
+name: read_metadata
+ts: 2026-01-18 19:35:11.181555+00:00
+type: keep_private
+full_path: metadata.metadata.read_metadata
+---
+name: read_metadata_or_none
+ts: 2026-01-18 19:35:11.181562+00:00
+type: keep_private
+full_path: metadata.metadata.read_metadata_or_none
+---
+name: set_metadata
+ts: 2026-01-18 19:35:11.181569+00:00
+type: keep_private
+full_path: metadata.metadata.set_metadata
+---
+name: pop_metadata
+ts: 2026-01-18 19:35:11.181576+00:00
+type: keep_private
+full_path: metadata.metadata.pop_metadata
+---
+name: base_model_dumper
+ts: 2026-01-18 19:35:13.257393+00:00
+type: keep_private
+full_path: dump_functions.base_model_dumper
+---
+name: registered_types
+ts: 2026-01-18 19:35:16.361789+00:00
+type: keep_private
+full_path: model_dump.registered_types
+---
+name: add_unregister
+ts: 2026-01-18 19:35:16.361817+00:00
+type: keep_private
+full_path: model_dump.add_unregister
+---
+name: register_dumper
+ts: 2026-01-18 19:35:16.361850+00:00
+type: keep_private
+full_path: model_dump.register_dumper
+---
+name: env_value_as_str
+ts: 2026-01-18 19:35:18.671280+00:00
+type: keep_private
+full_path: base_settings.env_value_as_str
+---
+name: container_or_default
+ts: 2026-01-18 19:35:18.671346+00:00
+type: keep_private
+full_path: base_settings.container_or_default
+---
+name: port_info
+ts: 2026-01-18 19:35:18.671358+00:00
+type: keep_private
+full_path: base_settings.port_info
+---
+name: __ROOT__
+ts: 2026-01-18 19:35:23.416438+00:00
+type: group_module
+module_path: static_settings
+---
+name: StaticSettings
+ts: 2026-01-18 19:35:23.417129+00:00
+type: make_public
+details: created in static_settings.py
+group: __ROOT__
+---
+name: yaml
+ts: 2026-01-18 19:35:45.880070+00:00
+type: group_module
+module_path: serialize.yaml_serialize
+---
+name: edit_yaml
+ts: 2026-01-18 19:35:45.881861+00:00
+type: make_public
+details: created in serialize/yaml_serialize.py
+group: yaml
+---
+name: edit_helm_template
+ts: 2026-01-18 19:35:45.883845+00:00
+type: make_public
+details: created in serialize/yaml_serialize.py
+group: yaml
+---
+name: multiline_pipe_style
+ts: 2026-01-18 19:35:45.885770+00:00
+type: make_public
+details: created in serialize/yaml_serialize.py
+group: yaml
+---
+name: no_yaml_anchors
+ts: 2026-01-18 19:35:45.887690+00:00
+type: make_public
+details: created in serialize/yaml_serialize.py
+group: yaml
+---
+name: no_timestamp_conversion
+ts: 2026-01-18 19:35:45.887738+00:00
+type: keep_private
+full_path: serialize.yaml_serialize.no_timestamp_conversion
+---
+name: TomlModule
+ts: 2026-01-18 19:35:47.538354+00:00
+type: keep_private
+full_path: serialize.toml_serialize.TomlModule
+---
+name: metadata_dumper
+ts: 2026-01-18 19:35:48.787044+00:00
+type: keep_private
+full_path: metadata.metadata_dump.metadata_dumper
+---
+name: ParentChildCopy
+ts: 2026-01-18 19:35:50.447019+00:00
+type: keep_private
+full_path: metadata.context_dict.ParentChildCopy
+---
+name: CopyConfig
+ts: 2026-01-18 19:35:50.447048+00:00
+type: keep_private
+full_path: metadata.context_dict.CopyConfig
+---
+name: LocalDict
+ts: 2026-01-18 19:35:50.447055+00:00
+type: keep_private
+full_path: metadata.context_dict.LocalDict
+---
+name: UnknownModelError
+ts: 2026-01-18 19:36:02.245120+00:00
+type: keep_private
+full_path: errors.UnknownModelError
+---
+name: ClsNameAlreadyExist
+ts: 2026-01-18 19:36:02.245191+00:00
+type: keep_private
+full_path: errors.ClsNameAlreadyExist
+---
+name: EnvVarParsingFailure
+ts: 2026-01-18 19:36:02.245204+00:00
+type: keep_private
+full_path: errors.EnvVarParsingFailure
+---
+name: ParseError
+ts: 2026-01-18 19:36:02.245215+00:00
+type: keep_private
+full_path: errors.ParseError
+---
+name: PayloadParserNotFoundError
+ts: 2026-01-18 19:36:02.245225+00:00
+type: keep_private
+full_path: errors.PayloadParserNotFoundError
+---
+name: PayloadError
+ts: 2026-01-18 19:36:02.245237+00:00
+type: keep_private
+full_path: errors.PayloadError
+---
+name: DumpConfigureError
+ts: 2026-01-18 19:36:02.245249+00:00
+type: keep_private
+full_path: errors.DumpConfigureError
+---
+name: PayloadParserAlreadyExistError
+ts: 2026-01-18 19:36:02.245262+00:00
+type: keep_private
+full_path: errors.PayloadParserAlreadyExistError
+---
+name: __ROOT__
+ts: 2026-01-18 19:36:11.280881+00:00
+type: group_module
+module_path: model_base
+---
+name: Event
+ts: 2026-01-18 19:36:11.283088+00:00
+type: make_public
+details: created in model_base.py
+group: __ROOT__
+---
+name: Entity
+ts: 2026-01-18 19:36:11.285189+00:00
+type: make_public
+details: created in model_base.py
+group: __ROOT__
+---
+name: TypeEvent
+ts: 2026-01-18 19:36:11.285250+00:00
+type: keep_private
+full_path: model_base.TypeEvent
+---
+name: SeqModel
+ts: 2026-01-18 19:36:11.285280+00:00
+type: keep_private
+full_path: model_base.SeqModel
+---
+name: EventMetadata
+ts: 2026-01-18 19:36:12.835279+00:00
+type: keep_private
+full_path: metadata.metadata_fields.EventMetadata
+---
+name: dump
+ts: 2026-01-18 19:36:34.335607+00:00
+type: group_module
+module_path: dump_functions
+---
+name: IgnoreFalsy
+ts: 2026-01-18 19:36:34.337212+00:00
+type: make_public
+details: created in dump_functions.py
+group: dump
+---
+name: FileFormat
+ts: 2026-01-18 19:36:36.963820+00:00
+type: keep_private
+full_path: constants.FileFormat
+---
+name: DockerOrClsDefDefault
+ts: 2026-01-18 19:36:38.065908+00:00
+type: keep_private
+full_path: base_settings.DockerOrClsDefDefault
