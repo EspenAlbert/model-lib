@@ -63,9 +63,18 @@ if not toml.dumps_ready:
 
 
 _dumps = toml.dumps
+_dumps_accepts_multiline_strings = False
+
+with suppress(ModuleNotFoundError):
+    import tomli_w
+
+    if _dumps == tomli_w.dumps:
+        _dumps_accepts_multiline_strings = True
 
 
-def dump_toml_str(data: object, **kwargs) -> str:
+def dump_toml_str(data: object, multiline_strings: bool = False, **kwargs) -> str:
+    if _dumps_accepts_multiline_strings:
+        return _dumps(data, multiline_strings=multiline_strings, **kwargs)  # type: ignore
     return _dumps(data, **kwargs)  # type: ignore
 
 

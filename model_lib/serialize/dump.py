@@ -36,7 +36,7 @@ def dump_as_toml_str_compact(instance: object, multiline_strings: bool = False, 
         raw: list | dict = dump_as_list(instance)  # type: ignore
     else:
         raw: dict = dump_as_dict(instance)  # type: ignore
-    return dump_toml_str(raw, multiline_strings=multiline_strings, **kwargs)
+    return dump_toml_str(raw, multiline_strings=multiline_strings)
 
 
 _payload_dumpers: dict[FileFormat | str, Callable[[Any], str]] = {
