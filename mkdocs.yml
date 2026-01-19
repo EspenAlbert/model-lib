@@ -13,7 +13,9 @@ theme:
 # === DO_NOT_EDIT: pkg-ext nav ===
 nav:
   - Home: index.md
-  - model_lib: _root/index.md
+  - model_lib:
+    - Overview: _root/index.md
+    - StaticSettings: _root/staticsettings.md
   - dump: dump/index.md
   - fields: fields/index.md
   - parse: parse/index.md
