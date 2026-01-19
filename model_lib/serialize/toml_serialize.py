@@ -31,6 +31,20 @@ class TomlModule:
 
 toml = TomlModule()
 _, version_minor, *__ = sys.version_info
+
+# For dumping: prefer tomli_w (declared dependency) over tomlkit for consistent output
+with suppress(ModuleNotFoundError):
+    import tomli_w
+
+    toml.dumps = tomli_w.dumps
+
+if not toml.dumps_ready:
+    with suppress(ModuleNotFoundError):
+        import tomlkit  # type: ignore
+
+        toml.dumps = tomlkit.dumps
+
+# For loading: try tomlkit first, then tomli, then stdlib tomllib
 with suppress(ModuleNotFoundError):
     import tomlkit  # type: ignore
 
@@ -39,7 +53,6 @@ with suppress(ModuleNotFoundError):
         return loaded.value
 
     toml.loads = loads
-    toml.dumps = tomlkit.dumps
 
 if not toml.loads_ready:
     try:
@@ -51,25 +64,20 @@ if not toml.loads_ready:
             import tomllib
 
             toml.loads = tomllib.loads
+
 if not toml.loads_ready:
     logger.info("no library for reading toml files: pip install tomlkit | tomli ")
 if not toml.dumps_ready:
-    try:
-        import tomli_w
-
-        toml.dumps = tomli_w.dumps
-    except ModuleNotFoundError:
-        logger.info("tomlkit or tomli-w not installed, dumping toml will not work")
+    logger.info("tomlkit or tomli-w not installed, dumping toml will not work")
 
 
 _dumps = toml.dumps
+# tomli_w.dumps accepts multiline_strings param, tomlkit.dumps does not
 _dumps_accepts_multiline_strings = False
-
 with suppress(ModuleNotFoundError):
-    import tomli_w
+    import tomli_w as _tomli_w_check
 
-    if _dumps == tomli_w.dumps:
-        _dumps_accepts_multiline_strings = True
+    _dumps_accepts_multiline_strings = _dumps == _tomli_w_check.dumps
 
 
 def dump_toml_str(data: object, multiline_strings: bool = False, **kwargs) -> str:
