@@ -4,7 +4,6 @@
 <!-- === OK_EDIT: pkg-ext header === -->
 
 <!-- === DO_NOT_EDIT: pkg-ext symbols === -->
-- [`BaseModelT`](#basemodelt_def)
 - [`UtcDatetime`](#utcdatetime_def)
 - [`UtcDatetimeMs`](#utcdatetimems_def)
 - [`copy_and_validate`](#copy_and_validate_def)
@@ -116,17 +115,8 @@ def field_names(model_type: type[BaseModel] | BaseModel) -> list[str]:
 > **Since:** unreleased
 
 ```python
-UtcDatetime = typing.Annotated[datetime.datetime, AfterValidator(func=<function ensure_timezone at 0x102a61580>)]
+UtcDatetime = typing.Annotated[<class 'datetime.datetime'>, AfterValidator(func=ensure_timezone)]
 ```
-
-Runtime representation of an annotated type.
-
-At its core 'Annotated[t, dec1, dec2, ...]' is an alias for the type 't'
-with extra annotations. The alias behaves like a normal typing alias.
-Instantiating is the same as instantiating the underlying type; binding
-it to types is also the same.
-
-The metadata itself is stored in a '__metadata__' attribute as a tuple.
 <!-- === OK_EDIT: pkg-ext utcdatetime_def === -->
 <!-- === DO_NOT_EDIT: pkg-ext utcdatetimems_def === -->
 ### type_alias: `UtcDatetimeMs`
@@ -134,15 +124,6 @@ The metadata itself is stored in a '__metadata__' attribute as a tuple.
 > **Since:** unreleased
 
 ```python
-UtcDatetimeMs = typing.Annotated[datetime.datetime, AfterValidator(func=<function as_ms_precision_utc at 0x102a4b6a0>)]
+UtcDatetimeMs = typing.Annotated[<class 'datetime.datetime'>, AfterValidator(func=as_ms_precision_utc)]
 ```
-
-Runtime representation of an annotated type.
-
-At its core 'Annotated[t, dec1, dec2, ...]' is an alias for the type 't'
-with extra annotations. The alias behaves like a normal typing alias.
-Instantiating is the same as instantiating the underlying type; binding
-it to types is also the same.
-
-The metadata itself is stored in a '__metadata__' attribute as a tuple.
 <!-- === OK_EDIT: pkg-ext utcdatetimems_def === -->
