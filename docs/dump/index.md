@@ -5,9 +5,9 @@
 
 <!-- === DO_NOT_EDIT: pkg-ext symbols === -->
 - [`IgnoreFalsy`](#ignorefalsy_def)
-- [`dump`](#dump_def)
 - [`dump_as_dict`](#dump_as_dict_def)
 - [`dump_as_list`](#dump_as_list_def)
+- [`dump_as_str`](#dump_as_str_def)
 <!-- === OK_EDIT: pkg-ext symbols === -->
 
 <!-- === DO_NOT_EDIT: pkg-ext symbol_details_header === -->
@@ -35,7 +35,7 @@ def dump(instance: Any) -> str:
 <!-- === OK_EDIT: pkg-ext dump_def === -->
 <!-- === DO_NOT_EDIT: pkg-ext dump_as_dict_def === -->
 ### function: `dump_as_dict`
-- [source](../../model_lib/serialize/dump.py#L73)
+- [source](../../model_lib/serialize/dump.py#L67)
 > **Since:** 0.100.0
 
 ```python
@@ -45,7 +45,7 @@ def dump_as_dict(instance: object) -> dict:
 <!-- === OK_EDIT: pkg-ext dump_as_dict_def === -->
 <!-- === DO_NOT_EDIT: pkg-ext dump_as_list_def === -->
 ### function: `dump_as_list`
-- [source](../../model_lib/serialize/dump.py#L78)
+- [source](../../model_lib/serialize/dump.py#L72)
 > **Since:** 0.100.0
 
 ```python
@@ -53,3 +53,16 @@ def dump_as_list(instance: Iterable[~ModelT]) -> list:
     ...
 ```
 <!-- === OK_EDIT: pkg-ext dump_as_list_def === -->
+<!-- === DO_NOT_EDIT: pkg-ext dump_as_str_def === -->
+### function: `dump_as_str`
+- [source](../../model_lib/serialize/dump.py#L55)
+> **Since:** 0.100.0
+
+```python
+def dump_as_str(instance: object, format: FileFormat | str) -> str:
+    ...
+```
+
+>>> dump_as_str('', "json")
+''
+<!-- === OK_EDIT: pkg-ext dump_as_str_def === -->

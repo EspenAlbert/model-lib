@@ -16,7 +16,7 @@
 
 <!-- === DO_NOT_EDIT: pkg-ext edit_helm_template_def === -->
 ### class: `edit_helm_template`
-- [source](../../model_lib/serialize/yaml_serialize.py#L115)
+- [source](../../model_lib/serialize/yaml_serialize.py#L103)
 > **Since:** 0.100.0
 
 ```python
@@ -26,7 +26,7 @@ class edit_helm_template:
 <!-- === OK_EDIT: pkg-ext edit_helm_template_def === -->
 <!-- === DO_NOT_EDIT: pkg-ext edit_yaml_def === -->
 ### class: `edit_yaml`
-- [source](../../model_lib/serialize/yaml_serialize.py#L76)
+- [source](../../model_lib/serialize/yaml_serialize.py#L66)
 > **Since:** 0.100.0
 
 ```python
@@ -36,7 +36,7 @@ class edit_yaml:
 <!-- === OK_EDIT: pkg-ext edit_yaml_def === -->
 <!-- === DO_NOT_EDIT: pkg-ext multiline_pipe_style_def === -->
 ### class: `multiline_pipe_style`
-- [source](../../model_lib/serialize/yaml_serialize.py#L196)
+- [source](../../model_lib/serialize/yaml_serialize.py#L182)
 > **Since:** 0.100.0
 
 ```python
@@ -46,7 +46,7 @@ class multiline_pipe_style:
 <!-- === OK_EDIT: pkg-ext multiline_pipe_style_def === -->
 <!-- === DO_NOT_EDIT: pkg-ext no_yaml_anchors_def === -->
 ### class: `no_yaml_anchors`
-- [source](../../model_lib/serialize/yaml_serialize.py#L215)
+- [source](../../model_lib/serialize/yaml_serialize.py#L201)
 > **Since:** 0.100.0
 
 ```python

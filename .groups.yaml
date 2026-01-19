@@ -18,7 +18,6 @@ groups:
   - serialize.dump.dump_as_dict
   - serialize.dump.dump_as_list
   - serialize.dump.dump_as_str
-  - serialize.json_serialize.dump
 - name: fields
   owned_modules:
   - pydantic_utils
