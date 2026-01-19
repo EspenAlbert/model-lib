@@ -1,7 +1,12 @@
 # Model-lib - pydantic base models with convenient dump methods
 
+[![PyPI](https://img.shields.io/pypi/v/model-lib)](https://pypi.org/project/model-lib/)
+[![GitHub](https://img.shields.io/github/license/EspenAlbert/py-libs)](https://github.com/EspenAlbert/py-libs)
+[![codecov](https://codecov.io/gh/EspenAlbert/py-libs/graph/badge.svg)](https://codecov.io/gh/EspenAlbert/py-libs)
+[![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-blue)](https://espenalbert.github.io/py-libs/)
+
 ## Installation
-`pip install 'model-lib[full]'`
+`pip install 'model-lib[toml]'`
 
 ## Model-lib tutorial: What classes to use as base classes, how to serialize them, and add metadata
 - A library built on top of [pydantic](https://docs.pydantic.dev/latest/)
@@ -13,7 +18,6 @@
     - Automatic registering for dumping to the various formats
     - Support different serializers for yaml/json/pretty_json/toml
     - use_enum_values
-    - see [model_base](model_lib/model_base.py) for details
 - Use `dump(model|payload, format) -> str`
   - if using an `Event|Entity` it should "just-work"
   - Alternatively, support custom dumping with `register_dumper(instance_type: Type[T],dump_call: DumpCall)` (see example below)
