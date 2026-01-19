@@ -4,7 +4,8 @@
 <!-- === OK_EDIT: pkg-ext header === -->
 
 <!-- === DO_NOT_EDIT: pkg-ext symbols === -->
-- [`BaseModelT`](#basemodelt_def)
+- [`UtcDatetime`](#utcdatetime_def)
+- [`UtcDatetimeMs`](#utcdatetimems_def)
 - [`copy_and_validate`](#copy_and_validate_def)
 - [`env_var_name`](#env_var_name_def)
 - [`env_var_names`](#env_var_names_def)
@@ -70,7 +71,7 @@ details.
 <!-- === OK_EDIT: pkg-ext basemodelt_def === -->
 <!-- === DO_NOT_EDIT: pkg-ext copy_and_validate_def === -->
 ### function: `copy_and_validate`
-- [source](../../model_lib/pydantic_utils.py#L103)
+- [source](../../model_lib/pydantic_utils.py#L93)
 > **Since:** 0.100.0
 
 ```python
@@ -90,7 +91,7 @@ def env_var_name(settings: BaseSettings | type[BaseSettings], field_name: str) -
 <!-- === OK_EDIT: pkg-ext env_var_name_def === -->
 <!-- === DO_NOT_EDIT: pkg-ext env_var_names_def === -->
 ### function: `env_var_names`
-- [source](../../model_lib/pydantic_utils.py#L31)
+- [source](../../model_lib/pydantic_utils.py#L29)
 > **Since:** 0.100.0
 
 ```python
@@ -100,7 +101,7 @@ def env_var_names(settings: BaseSettings | type[BaseSettings]) -> list[str]:
 <!-- === OK_EDIT: pkg-ext env_var_names_def === -->
 <!-- === DO_NOT_EDIT: pkg-ext field_names_def === -->
 ### function: `field_names`
-- [source](../../model_lib/pydantic_utils.py#L128)
+- [source](../../model_lib/pydantic_utils.py#L118)
 > **Since:** 0.100.0
 
 ```python
@@ -108,3 +109,21 @@ def field_names(model_type: type[BaseModel] | BaseModel) -> list[str]:
     ...
 ```
 <!-- === OK_EDIT: pkg-ext field_names_def === -->
+<!-- === DO_NOT_EDIT: pkg-ext utcdatetime_def === -->
+### type_alias: `UtcDatetime`
+- [source](../../model_lib/pydantic_utils.py)
+> **Since:** unreleased
+
+```python
+UtcDatetime = typing.Annotated[<class 'datetime.datetime'>, AfterValidator(func=ensure_timezone)]
+```
+<!-- === OK_EDIT: pkg-ext utcdatetime_def === -->
+<!-- === DO_NOT_EDIT: pkg-ext utcdatetimems_def === -->
+### type_alias: `UtcDatetimeMs`
+- [source](../../model_lib/pydantic_utils.py)
+> **Since:** unreleased
+
+```python
+UtcDatetimeMs = typing.Annotated[<class 'datetime.datetime'>, AfterValidator(func=as_ms_precision_utc)]
+```
+<!-- === OK_EDIT: pkg-ext utcdatetimems_def === -->

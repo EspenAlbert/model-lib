@@ -18,12 +18,12 @@ groups:
   - serialize.dump.dump_as_dict
   - serialize.dump.dump_as_list
   - serialize.dump.dump_as_str
-  - serialize.json_serialize.dump
 - name: fields
   owned_modules:
   - pydantic_utils
   owned_refs:
-  - pydantic_utils.BaseModelT
+  - pydantic_utils.UtcDatetime
+  - pydantic_utils.UtcDatetimeMs
   - pydantic_utils.copy_and_validate
   - pydantic_utils.env_var_name
   - pydantic_utils.env_var_names
