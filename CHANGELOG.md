@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.101.0 2026-01-19T06-30Z
+
+### Fields
+- Removed `fields.BaseModelT`
+- New type_alias `UtcDatetime`
+- New type_alias `UtcDatetimeMs`
+
+
 ## 0.100.0 2026-01-18T20-08Z
 
 ### __Root__

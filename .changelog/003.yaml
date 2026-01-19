@@ -14,3 +14,8 @@ name: BaseModelT
 ts: 2026-01-19 05:56:46.533095+00:00
 type: delete
 group: fields
+---
+name: 0.101.0
+ts: 2026-01-19 06:30:54.728328+00:00
+type: release
+old_version: 0.100.0

@@ -1,12 +1,12 @@
 pkg_import_name: model_lib
-version: 0.100.0
+version: 0.101.0
 groups:
 - name: __ROOT__
   symbols:
   - name: Entity
     module_path: model_base
     docstring: ''
-    line_number: 60
+    line_number: 58
     type: class
     direct_bases:
     - _Model
@@ -26,7 +26,7 @@ groups:
   - name: Event
     module_path: model_base
     docstring: ''
-    line_number: 56
+    line_number: 54
     type: class
     direct_bases:
     - _Model
@@ -108,7 +108,7 @@ groups:
   - name: dump_as_dict
     module_path: serialize.dump
     docstring: ''
-    line_number: 73
+    line_number: 67
     type: function
     signature:
       parameters:
@@ -121,7 +121,7 @@ groups:
   - name: dump_as_list
     module_path: serialize.dump
     docstring: ''
-    line_number: 78
+    line_number: 72
     type: function
     signature:
       parameters:
@@ -131,32 +131,46 @@ groups:
         type_imports: []
       return_annotation: list
       return_type_imports: []
-  - name: dump
-    module_path: serialize.json_serialize
-    docstring: ''
-    line_number: 19
+  - name: dump_as_str
+    module_path: serialize.dump
+    docstring: '
+
+      >>> dump_as_str('''', "json")
+
+      ''''
+
+      '
+    line_number: 55
     type: function
     signature:
       parameters:
       - name: instance
         kind: positional_or_keyword
-        type_annotation: Any
+        type_annotation: object
+        type_imports: []
+      - name: format
+        kind: positional_or_keyword
+        type_annotation: FileFormat | str
         type_imports:
-        - typing.Any
+        - model_lib.constants.FileFormat
       return_annotation: str
       return_type_imports: []
 - name: fields
   symbols:
-  - name: BaseModelT
+  - name: UtcDatetime
     module_path: pydantic_utils
-    docstring: "Type variable.\n\nThe preferred way to construct a type variable is via the dedicated\nsyntax for generic functions, classes, and type aliases::\n\n    class Sequence[T]:  # T is a TypeVar\n        ...\n\nThis syntax can also be used to create bound and constrained type\nvariables::\n\n    # S is a TypeVar bound to str\n    class StrSequence[S: str]:\n        ...\n\n    # A is a TypeVar constrained to str or bytes\n    class StrOrBytesSequence[A: (str, bytes)]:\n        ...\n\nType variables can also have defaults:\n\n    class IntDefault[T = int]:\n        ...\n\nHowever, if desired, reusable type variables can also be constructed\nmanually, like so::\n\n   T = TypeVar('T')  # Can be anything\n   S = TypeVar('S', bound=str)  # Can be any subtype of str\n   A = TypeVar('A', str, bytes)  # Must be exactly str or bytes\n   D = TypeVar('D', default=int)  # Defaults to int\n\nType variables exist primarily for the benefit of static type\ncheckers.  They serve as the parameters\
-      \ for generic types as well\nas for generic function and type alias definitions.\n\nThe variance of type variables is inferred by type checkers when they\nare created through the type parameter syntax and when\n``infer_variance=True`` is passed. Manually created type variables may\nbe explicitly marked covariant or contravariant by passing\n``covariant=True`` or ``contravariant=True``. By default, manually\ncreated type variables are invariant. See PEP 484 and PEP 695 for more\ndetails.\n"
+    docstring: ''
     type: type_alias
-    alias_target: ~BaseModelT
+    alias_target: typing.Annotated[<class 'datetime.datetime'>, AfterValidator(func=ensure_timezone)]
+  - name: UtcDatetimeMs
+    module_path: pydantic_utils
+    docstring: ''
+    type: type_alias
+    alias_target: typing.Annotated[<class 'datetime.datetime'>, AfterValidator(func=as_ms_precision_utc)]
   - name: copy_and_validate
     module_path: pydantic_utils
     docstring: ''
-    line_number: 103
+    line_number: 93
     type: function
     signature:
       parameters:
@@ -191,7 +205,7 @@ groups:
   - name: env_var_names
     module_path: pydantic_utils
     docstring: ''
-    line_number: 31
+    line_number: 29
     type: function
     signature:
       parameters:
@@ -206,7 +220,7 @@ groups:
   - name: field_names
     module_path: pydantic_utils
     docstring: ''
-    line_number: 128
+    line_number: 118
     type: function
     signature:
       parameters:
@@ -223,7 +237,7 @@ groups:
   - name: parse_dict
     module_path: serialize.parse
     docstring: ''
-    line_number: 132
+    line_number: 126
     type: function
     signature:
       parameters:
@@ -245,7 +259,7 @@ groups:
   - name: parse_list
     module_path: serialize.parse
     docstring: ''
-    line_number: 125
+    line_number: 119
     type: function
     signature:
       parameters:
@@ -304,7 +318,7 @@ groups:
   - name: parse_payload
     module_path: serialize.parse
     docstring: ''
-    line_number: 139
+    line_number: 133
     type: function
     signature:
       parameters:
@@ -325,7 +339,7 @@ groups:
   - name: edit_helm_template
     module_path: serialize.yaml_serialize
     docstring: ''
-    line_number: 115
+    line_number: 103
     type: class
     direct_bases: []
     init_signature:
@@ -356,7 +370,7 @@ groups:
   - name: edit_yaml
     module_path: serialize.yaml_serialize
     docstring: ''
-    line_number: 76
+    line_number: 66
     type: class
     direct_bases: []
     init_signature:
@@ -398,7 +412,7 @@ groups:
   - name: multiline_pipe_style
     module_path: serialize.yaml_serialize
     docstring: ''
-    line_number: 196
+    line_number: 182
     type: class
     direct_bases: []
     init_signature:
@@ -416,7 +430,7 @@ groups:
   - name: no_yaml_anchors
     module_path: serialize.yaml_serialize
     docstring: "Context manager to disable YAML anchors/aliases during serialization.\n\nThis prevents duplicate objects from being represented as anchors (*id001)\nand aliases (&id001), which can happen with datetime objects or other\nrepeated values in the data structure.\n\nUsage:\n    with no_yaml_anchors():\n        yaml_str = dump(data, \"yaml\")\n"
-    line_number: 215
+    line_number: 201
     type: class
     direct_bases: []
     init_signature:
@@ -431,4 +445,4 @@ groups:
         kind: var_keyword
         type_imports: []
       return_type_imports: []
-dumped_at: 2026-01-18 20:08:14.938611+00:00
+dumped_at: 2026-01-19 06:30:54.716132+00:00

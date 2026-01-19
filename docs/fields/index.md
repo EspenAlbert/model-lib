@@ -112,7 +112,7 @@ def field_names(model_type: type[BaseModel] | BaseModel) -> list[str]:
 <!-- === DO_NOT_EDIT: pkg-ext utcdatetime_def === -->
 ### type_alias: `UtcDatetime`
 - [source](../../model_lib/pydantic_utils.py)
-> **Since:** unreleased
+> **Since:** 0.101.0
 
 ```python
 UtcDatetime = typing.Annotated[<class 'datetime.datetime'>, AfterValidator(func=ensure_timezone)]
@@ -121,7 +121,7 @@ UtcDatetime = typing.Annotated[<class 'datetime.datetime'>, AfterValidator(func=
 <!-- === DO_NOT_EDIT: pkg-ext utcdatetimems_def === -->
 ### type_alias: `UtcDatetimeMs`
 - [source](../../model_lib/pydantic_utils.py)
-> **Since:** unreleased
+> **Since:** 0.101.0
 
 ```python
 UtcDatetimeMs = typing.Annotated[<class 'datetime.datetime'>, AfterValidator(func=as_ms_precision_utc)]
