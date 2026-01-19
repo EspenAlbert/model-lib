@@ -15,6 +15,8 @@
 <!-- === OK_EDIT: pkg-ext symbol_details_header === -->
 
 <!-- === DO_NOT_EDIT: pkg-ext parse_dict_def === -->
+<a id="parse_dict_def"></a>
+
 ### function: `parse_dict`
 - [source](../../model_lib/serialize/parse.py#L126)
 > **Since:** 0.100.0
@@ -25,6 +27,8 @@ def parse_dict(payload: ~RegisteredPayloadT | str | bytes | Path | dict | list, 
 ```
 <!-- === OK_EDIT: pkg-ext parse_dict_def === -->
 <!-- === DO_NOT_EDIT: pkg-ext parse_list_def === -->
+<a id="parse_list_def"></a>
+
 ### function: `parse_list`
 - [source](../../model_lib/serialize/parse.py#L119)
 > **Since:** 0.100.0
@@ -35,6 +39,8 @@ def parse_list(payload: ~RegisteredPayloadT | str | bytes | Path | dict | list, 
 ```
 <!-- === OK_EDIT: pkg-ext parse_list_def === -->
 <!-- === DO_NOT_EDIT: pkg-ext parse_model_def === -->
+<a id="parse_model_def"></a>
+
 ### function: `parse_model`
 - [source](../../model_lib/serialize/parse.py#L50)
 > **Since:** 0.100.0
@@ -45,6 +51,8 @@ def parse_model(payload: ~RegisteredPayloadT | str | bytes | Path | dict | list,
 ```
 <!-- === OK_EDIT: pkg-ext parse_model_def === -->
 <!-- === DO_NOT_EDIT: pkg-ext parse_payload_def === -->
+<a id="parse_payload_def"></a>
+
 ### function: `parse_payload`
 - [source](../../model_lib/serialize/parse.py#L133)
 > **Since:** 0.100.0
