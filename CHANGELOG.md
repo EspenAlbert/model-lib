@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.102.0 2026-01-24T18-45Z
+
+### __Root__
+- BREAKING `__ROOT__.StaticSettings`: field 'CACHE_DIR' type: Path -> Path | None
+- BREAKING `__ROOT__.StaticSettings`: field 'CACHE_DIR' default removed (was: PydanticUndefined)
+- BREAKING `__ROOT__.StaticSettings`: field 'STATIC_DIR' type: Path -> Path | None
+- BREAKING `__ROOT__.StaticSettings`: field 'STATIC_DIR' default removed (was: PydanticUndefined)
+
+
 ## 0.101.0 2026-01-19T06-30Z
 
 ### Fields

@@ -4,6 +4,7 @@
 <!-- === OK_EDIT: pkg-ext header === -->
 
 <!-- === DO_NOT_EDIT: pkg-ext symbols === -->
+- [`BaseModelT`](#basemodelt_def)
 - [`UtcDatetime`](#utcdatetime_def)
 - [`UtcDatetimeMs`](#utcdatetimems_def)
 - [`copy_and_validate`](#copy_and_validate_def)
@@ -86,3 +87,15 @@ UtcDatetime = typing.Annotated[<class 'datetime.datetime'>, AfterValidator(func=
 UtcDatetimeMs = typing.Annotated[<class 'datetime.datetime'>, AfterValidator(func=as_ms_precision_utc)]
 ```
 <!-- === OK_EDIT: pkg-ext utcdatetimems_def === -->
+
+<!-- === DO_NOT_EDIT: pkg-ext basemodelt_def === -->
+<a id="basemodelt_def"></a>
+
+### type_alias: `BaseModelT`
+- [source](../../model_lib/pydantic_utils.py)
+> **Since:** 0.100.0
+
+```python
+BaseModelT = ~BaseModelT
+```
+<!-- === OK_EDIT: pkg-ext basemodelt_def === -->

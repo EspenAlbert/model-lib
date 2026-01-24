@@ -34,5 +34,9 @@ class StaticSettings(BaseSettings):
 
 | Version | Change |
 |---------|--------|
+| 0.102.0 | field 'STATIC_DIR' default removed (was: PydanticUndefined) |
+| 0.102.0 | field 'STATIC_DIR' type: Path -> Path | None |
+| 0.102.0 | field 'CACHE_DIR' default removed (was: PydanticUndefined) |
+| 0.102.0 | field 'CACHE_DIR' type: Path -> Path | None |
 | 0.100.0 | Made public |
 <!-- === OK_EDIT: pkg-ext staticsettings_changes === -->

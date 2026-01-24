@@ -33,3 +33,8 @@ change_kind: default_removed
 details: 'field ''STATIC_DIR'' default removed (was: PydanticUndefined)'
 field_name: STATIC_DIR
 group: __ROOT__
+---
+name: 0.102.0
+ts: 2026-01-24 18:45:45.621750+00:00
+type: release
+old_version: 0.101.0

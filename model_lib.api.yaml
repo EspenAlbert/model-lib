@@ -1,5 +1,5 @@
 pkg_import_name: model_lib
-version: 0.101.0
+version: 0.102.0
 groups:
 - name: __ROOT__
   symbols:
@@ -46,29 +46,23 @@ groups:
   - name: StaticSettings
     module_path: static_settings
     docstring: ''
-    line_number: 10
+    line_number: 11
     type: class
     direct_bases:
     - BaseSettings
     fields:
     - name: STATIC_DIR
-      type_annotation: Path
+      type_annotation: Path | None
       type_imports:
       - pathlib.Path
-      default:
-        value_repr: PydanticUndefined
-        is_factory: false
       is_class_var: false
       is_computed: false
       env_vars:
       - static_dir
     - name: CACHE_DIR
-      type_annotation: Path
+      type_annotation: Path | None
       type_imports:
       - pathlib.Path
-      default:
-        value_repr: PydanticUndefined
-        is_factory: false
       is_class_var: false
       is_computed: false
       env_vars:
@@ -157,6 +151,11 @@ groups:
       return_type_imports: []
 - name: fields
   symbols:
+  - name: BaseModelT
+    module_path: pydantic_utils
+    docstring: ''
+    type: type_alias
+    alias_target: ~BaseModelT
   - name: UtcDatetime
     module_path: pydantic_utils
     docstring: ''
@@ -445,4 +444,4 @@ groups:
         kind: var_keyword
         type_imports: []
       return_type_imports: []
-dumped_at: 2026-01-19 06:30:54.716132+00:00
+dumped_at: 2026-01-24 18:45:45.609642+00:00
