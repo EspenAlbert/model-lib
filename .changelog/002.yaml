@@ -63,24 +63,28 @@ ts: 2026-01-18 19:32:01.099107+00:00
 type: make_public
 details: created in serialize/parse.py
 group: parse
+full_path: serialize.parse.parse_model
 ---
 name: parse_list
 ts: 2026-01-18 19:32:01.100386+00:00
 type: make_public
 details: created in serialize/parse.py
 group: parse
+full_path: serialize.parse.parse_list
 ---
 name: parse_dict
 ts: 2026-01-18 19:32:01.101463+00:00
 type: make_public
 details: created in serialize/parse.py
 group: parse
+full_path: serialize.parse.parse_dict
 ---
 name: parse_payload
 ts: 2026-01-18 19:32:01.102473+00:00
 type: make_public
 details: created in serialize/parse.py
 group: parse
+full_path: serialize.parse.parse_payload
 ---
 name: create_model
 ts: 2026-01-18 19:32:01.102588+00:00
@@ -127,12 +131,14 @@ ts: 2026-01-18 19:33:53.222230+00:00
 type: make_public
 details: created in serialize/json_serialize.py
 group: dump
+full_path: serialize.dump.dump_as_dict
 ---
 name: dump_as_list
 ts: 2026-01-18 19:33:53.222240+00:00
 type: make_public
 details: created in serialize/json_serialize.py
 group: dump
+full_path: serialize.dump.dump_as_list
 ---
 name: dump_as_type_dict_list
 ts: 2026-01-18 19:33:53.222248+00:00
@@ -269,24 +275,28 @@ ts: 2026-01-18 19:35:05.468586+00:00
 type: make_public
 details: created in pydantic_utils.py
 group: fields
+full_path: pydantic_utils.env_var_name
 ---
 name: env_var_names
 ts: 2026-01-18 19:35:05.469691+00:00
 type: make_public
 details: created in pydantic_utils.py
 group: fields
+full_path: pydantic_utils.env_var_names
 ---
 name: copy_and_validate
 ts: 2026-01-18 19:35:05.470689+00:00
 type: make_public
 details: created in pydantic_utils.py
 group: fields
+full_path: pydantic_utils.copy_and_validate
 ---
 name: field_names
 ts: 2026-01-18 19:35:05.471655+00:00
 type: make_public
 details: created in pydantic_utils.py
 group: fields
+full_path: pydantic_utils.field_names
 ---
 name: parse_object_as
 ts: 2026-01-18 19:35:05.471728+00:00
@@ -348,6 +358,7 @@ ts: 2026-01-18 19:35:05.478004+00:00
 type: make_public
 details: exposed in the function pydantic_utils.copy_and_validate
 group: fields
+full_path: pydantic_utils.BaseModelT
 ---
 name: iter_tags
 ts: 2026-01-18 19:35:09.001315+00:00
@@ -434,6 +445,7 @@ ts: 2026-01-18 19:35:23.417129+00:00
 type: make_public
 details: created in static_settings.py
 group: __ROOT__
+full_path: static_settings.StaticSettings
 ---
 name: yaml
 ts: 2026-01-18 19:35:45.880070+00:00
@@ -445,24 +457,28 @@ ts: 2026-01-18 19:35:45.881861+00:00
 type: make_public
 details: created in serialize/yaml_serialize.py
 group: yaml
+full_path: serialize.yaml_serialize.edit_yaml
 ---
 name: edit_helm_template
 ts: 2026-01-18 19:35:45.883845+00:00
 type: make_public
 details: created in serialize/yaml_serialize.py
 group: yaml
+full_path: serialize.yaml_serialize.edit_helm_template
 ---
 name: multiline_pipe_style
 ts: 2026-01-18 19:35:45.885770+00:00
 type: make_public
 details: created in serialize/yaml_serialize.py
 group: yaml
+full_path: serialize.yaml_serialize.multiline_pipe_style
 ---
 name: no_yaml_anchors
 ts: 2026-01-18 19:35:45.887690+00:00
 type: make_public
 details: created in serialize/yaml_serialize.py
 group: yaml
+full_path: serialize.yaml_serialize.no_yaml_anchors
 ---
 name: no_timestamp_conversion
 ts: 2026-01-18 19:35:45.887738+00:00
@@ -544,12 +560,14 @@ ts: 2026-01-18 19:36:11.283088+00:00
 type: make_public
 details: created in model_base.py
 group: __ROOT__
+full_path: model_base.Event
 ---
 name: Entity
 ts: 2026-01-18 19:36:11.285189+00:00
 type: make_public
 details: created in model_base.py
 group: __ROOT__
+full_path: model_base.Entity
 ---
 name: TypeEvent
 ts: 2026-01-18 19:36:11.285250+00:00
@@ -576,6 +594,7 @@ ts: 2026-01-18 19:36:34.337212+00:00
 type: make_public
 details: created in dump_functions.py
 group: dump
+full_path: dump_functions.IgnoreFalsy
 ---
 name: FileFormat
 ts: 2026-01-18 19:36:36.963820+00:00
