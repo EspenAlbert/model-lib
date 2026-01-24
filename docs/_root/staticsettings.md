@@ -2,13 +2,13 @@
 
 <!-- === DO_NOT_EDIT: pkg-ext staticsettings_def === -->
 ## class: StaticSettings
-- [source](../../model_lib/static_settings.py#L10)
+- [source](../../model_lib/static_settings.py#L11)
 > **Since:** 0.100.0
 
 ```python
 class StaticSettings(BaseSettings):
-    STATIC_DIR: Path = PydanticUndefined
-    CACHE_DIR: Path = PydanticUndefined
+    STATIC_DIR: Path | None
+    CACHE_DIR: Path | None
     SKIP_APP_NAME: bool = False
 ```
 <!-- === OK_EDIT: pkg-ext staticsettings_def === -->

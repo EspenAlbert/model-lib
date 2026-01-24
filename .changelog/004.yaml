@@ -1,0 +1,35 @@
+name: StaticSettings
+ts: 2026-01-24 18:42:48.455258+00:00
+type: breaking_change
+auto_generated: true
+change_kind: param_type_changed
+details: 'field ''CACHE_DIR'' type: Path -> Path | None'
+field_name: CACHE_DIR
+group: __ROOT__
+---
+name: StaticSettings
+ts: 2026-01-24 18:42:48.455275+00:00
+type: breaking_change
+auto_generated: true
+change_kind: default_removed
+details: 'field ''CACHE_DIR'' default removed (was: PydanticUndefined)'
+field_name: CACHE_DIR
+group: __ROOT__
+---
+name: StaticSettings
+ts: 2026-01-24 18:42:48.455279+00:00
+type: breaking_change
+auto_generated: true
+change_kind: param_type_changed
+details: 'field ''STATIC_DIR'' type: Path -> Path | None'
+field_name: STATIC_DIR
+group: __ROOT__
+---
+name: StaticSettings
+ts: 2026-01-24 18:42:48.455282+00:00
+type: breaking_change
+auto_generated: true
+change_kind: default_removed
+details: 'field ''STATIC_DIR'' default removed (was: PydanticUndefined)'
+field_name: STATIC_DIR
+group: __ROOT__
