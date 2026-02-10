@@ -25,6 +25,12 @@
 class IgnoreFalsy(BaseModel):
     ...
 ```
+
+### Changes
+
+| Version | Change |
+|---------|--------|
+| 0.100.0 | Made public |
 <!-- === OK_EDIT: pkg-ext ignorefalsy_def === -->
 <!-- === DO_NOT_EDIT: pkg-ext dump_as_dict_def === -->
 <a id="dump_as_dict_def"></a>
@@ -37,6 +43,12 @@ class IgnoreFalsy(BaseModel):
 def dump_as_dict(instance: object) -> dict:
     ...
 ```
+
+### Changes
+
+| Version | Change |
+|---------|--------|
+| 0.100.0 | Made public |
 <!-- === OK_EDIT: pkg-ext dump_as_dict_def === -->
 <!-- === DO_NOT_EDIT: pkg-ext dump_as_list_def === -->
 <a id="dump_as_list_def"></a>
@@ -49,6 +61,12 @@ def dump_as_dict(instance: object) -> dict:
 def dump_as_list(instance: Iterable[~ModelT]) -> list:
     ...
 ```
+
+### Changes
+
+| Version | Change |
+|---------|--------|
+| 0.100.0 | Made public |
 <!-- === OK_EDIT: pkg-ext dump_as_list_def === -->
 <!-- === DO_NOT_EDIT: pkg-ext dump_as_str_def === -->
 <a id="dump_as_str_def"></a>
@@ -64,4 +82,10 @@ def dump_as_str(instance: object, format: FileFormat | str) -> str:
 
 >>> dump_as_str('', "json")
 ''
+
+### Changes
+
+| Version | Change |
+|---------|--------|
+| 0.100.0 | Made public |
 <!-- === OK_EDIT: pkg-ext dump_as_str_def === -->

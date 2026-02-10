@@ -24,6 +24,12 @@
 class Entity(_Model):
     ...
 ```
+
+### Changes
+
+| Version | Change |
+|---------|--------|
+| 0.100.0 | Made public |
 <!-- === OK_EDIT: pkg-ext entity_def === -->
 <!-- === DO_NOT_EDIT: pkg-ext event_def === -->
 <a id="event_def"></a>
@@ -36,4 +42,10 @@ class Entity(_Model):
 class Event(_Model):
     ...
 ```
+
+### Changes
+
+| Version | Change |
+|---------|--------|
+| 0.100.0 | Made public |
 <!-- === OK_EDIT: pkg-ext event_def === -->

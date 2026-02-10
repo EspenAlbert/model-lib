@@ -7,8 +7,8 @@
 
 ```python
 class StaticSettings(BaseSettings):
-    STATIC_DIR: Path | None
-    CACHE_DIR: Path | None
+    STATIC_DIR: Path | None = None
+    CACHE_DIR: Path | None = None
     SKIP_APP_NAME: bool = False
 ```
 <!-- === OK_EDIT: pkg-ext staticsettings_def === -->

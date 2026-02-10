@@ -1,0 +1,49 @@
+name: Event
+ts: 2026-02-10 21:12:15.603395+00:00
+type: additional_change
+auto_generated: true
+change_kind: base_class_added
+details: added base class '_Model'
+group: __ROOT__
+---
+name: Entity
+ts: 2026-02-10 21:12:15.603408+00:00
+type: additional_change
+auto_generated: true
+change_kind: base_class_added
+details: added base class '_Model'
+group: __ROOT__
+---
+name: StaticSettings
+ts: 2026-02-10 21:12:15.603412+00:00
+type: additional_change
+auto_generated: true
+change_kind: base_class_added
+details: added base class 'BaseSettings'
+group: __ROOT__
+---
+name: StaticSettings
+ts: 2026-02-10 21:12:15.603414+00:00
+type: additional_change
+auto_generated: true
+change_kind: default_added
+details: 'field ''CACHE_DIR'' default added: None'
+field_name: CACHE_DIR
+group: __ROOT__
+---
+name: StaticSettings
+ts: 2026-02-10 21:12:15.603417+00:00
+type: additional_change
+auto_generated: true
+change_kind: default_added
+details: 'field ''STATIC_DIR'' default added: None'
+field_name: STATIC_DIR
+group: __ROOT__
+---
+name: IgnoreFalsy
+ts: 2026-02-10 21:12:15.603419+00:00
+type: additional_change
+auto_generated: true
+change_kind: base_class_added
+details: added base class 'BaseModel'
+group: dump
