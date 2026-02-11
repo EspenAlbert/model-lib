@@ -25,6 +25,12 @@
 def parse_dict(payload: ~RegisteredPayloadT | str | bytes | Path | dict | list, format: FileFormat | str = 'json') -> dict:
     ...
 ```
+
+### Changes
+
+| Version | Change |
+|---------|--------|
+| 0.100.0 | Made public |
 <!-- === OK_EDIT: pkg-ext parse_dict_def === -->
 <!-- === DO_NOT_EDIT: pkg-ext parse_list_def === -->
 <a id="parse_list_def"></a>
@@ -37,6 +43,12 @@ def parse_dict(payload: ~RegisteredPayloadT | str | bytes | Path | dict | list, 
 def parse_list(payload: ~RegisteredPayloadT | str | bytes | Path | dict | list, format: FileFormat | str = 'json') -> list:
     ...
 ```
+
+### Changes
+
+| Version | Change |
+|---------|--------|
+| 0.100.0 | Made public |
 <!-- === OK_EDIT: pkg-ext parse_list_def === -->
 <!-- === DO_NOT_EDIT: pkg-ext parse_model_def === -->
 <a id="parse_model_def"></a>
@@ -49,6 +61,12 @@ def parse_list(payload: ~RegisteredPayloadT | str | bytes | Path | dict | list, 
 def parse_model(payload: ~RegisteredPayloadT | str | bytes | Path | dict | list, t: type[~T] | None = None, format: FileFormat | str = 'json', extra_kwargs: Mapping[str, Any] | None = None) -> ~T:
     ...
 ```
+
+### Changes
+
+| Version | Change |
+|---------|--------|
+| 0.100.0 | Made public |
 <!-- === OK_EDIT: pkg-ext parse_model_def === -->
 <!-- === DO_NOT_EDIT: pkg-ext parse_payload_def === -->
 <a id="parse_payload_def"></a>
@@ -61,4 +79,10 @@ def parse_model(payload: ~RegisteredPayloadT | str | bytes | Path | dict | list,
 def parse_payload(payload: object, format = 'json') -> dict | list:
     ...
 ```
+
+### Changes
+
+| Version | Change |
+|---------|--------|
+| 0.100.0 | Made public |
 <!-- === OK_EDIT: pkg-ext parse_payload_def === -->
