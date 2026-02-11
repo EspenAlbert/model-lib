@@ -47,3 +47,8 @@ auto_generated: true
 change_kind: base_class_added
 details: added base class 'BaseModel'
 group: dump
+---
+name: 0.102.1
+ts: 2026-02-11 07:33:59.383395+00:00
+type: release
+old_version: 0.102.0

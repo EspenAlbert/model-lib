@@ -1,5 +1,5 @@
 pkg_import_name: model_lib
-version: 0.102.0
+version: 0.102.1
 groups:
 - name: __ROOT__
   symbols:
@@ -8,8 +8,10 @@ groups:
     docstring: ''
     line_number: 58
     type: class
-    direct_bases:
+    mro_bases:
     - _Model
+    - BaseModel
+    num_direct_bases: 1
     init_signature:
       parameters:
       - name: self
@@ -28,8 +30,10 @@ groups:
     docstring: ''
     line_number: 54
     type: class
-    direct_bases:
+    mro_bases:
     - _Model
+    - BaseModel
+    num_direct_bases: 1
     init_signature:
       parameters:
       - name: self
@@ -48,13 +52,18 @@ groups:
     docstring: ''
     line_number: 11
     type: class
-    direct_bases:
+    mro_bases:
     - BaseSettings
+    - BaseModel
+    num_direct_bases: 1
     fields:
     - name: STATIC_DIR
       type_annotation: Path | None
       type_imports:
       - pathlib.Path
+      default:
+        value_repr: None
+        is_factory: false
       is_class_var: false
       is_computed: false
       env_vars:
@@ -63,6 +72,9 @@ groups:
       type_annotation: Path | None
       type_imports:
       - pathlib.Path
+      default:
+        value_repr: None
+        is_factory: false
       is_class_var: false
       is_computed: false
       env_vars:
@@ -84,8 +96,9 @@ groups:
     docstring: ''
     line_number: 17
     type: class
-    direct_bases:
+    mro_bases:
     - BaseModel
+    num_direct_bases: 1
     init_signature:
       parameters:
       - name: self
@@ -160,12 +173,12 @@ groups:
     module_path: pydantic_utils
     docstring: ''
     type: type_alias
-    alias_target: typing.Annotated[<class 'datetime.datetime'>, AfterValidator(func=ensure_timezone)]
+    alias_target: typing.Annotated[<class 'datetime.datetime'>, AfterValidator(func=<function ensure_timezone>)]
   - name: UtcDatetimeMs
     module_path: pydantic_utils
     docstring: ''
     type: type_alias
-    alias_target: typing.Annotated[<class 'datetime.datetime'>, AfterValidator(func=as_ms_precision_utc)]
+    alias_target: typing.Annotated[<class 'datetime.datetime'>, AfterValidator(func=<function as_ms_precision_utc>)]
   - name: copy_and_validate
     module_path: pydantic_utils
     docstring: ''
@@ -340,7 +353,8 @@ groups:
     docstring: ''
     line_number: 103
     type: class
-    direct_bases: []
+    mro_bases: []
+    num_direct_bases: 0
     init_signature:
       parameters:
       - name: self
@@ -371,7 +385,8 @@ groups:
     docstring: ''
     line_number: 66
     type: class
-    direct_bases: []
+    mro_bases: []
+    num_direct_bases: 0
     init_signature:
       parameters:
       - name: self
@@ -413,7 +428,8 @@ groups:
     docstring: ''
     line_number: 182
     type: class
-    direct_bases: []
+    mro_bases: []
+    num_direct_bases: 0
     init_signature:
       parameters:
       - name: self
@@ -431,7 +447,8 @@ groups:
     docstring: "Context manager to disable YAML anchors/aliases during serialization.\n\nThis prevents duplicate objects from being represented as anchors (*id001)\nand aliases (&id001), which can happen with datetime objects or other\nrepeated values in the data structure.\n\nUsage:\n    with no_yaml_anchors():\n        yaml_str = dump(data, \"yaml\")\n"
     line_number: 201
     type: class
-    direct_bases: []
+    mro_bases: []
+    num_direct_bases: 0
     init_signature:
       parameters:
       - name: self
@@ -444,4 +461,4 @@ groups:
         kind: var_keyword
         type_imports: []
       return_type_imports: []
-dumped_at: 2026-01-24 18:45:45.609642+00:00
+dumped_at: 2026-02-11 07:33:59.361884+00:00

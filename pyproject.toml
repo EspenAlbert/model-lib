@@ -3,7 +3,7 @@
 # === OK_EDIT: path-sync header ===
 [project]
 name = "model-lib"
-version = "0.102.0"
+version = "0.102.1"
 description = "Pydantic model utilities for serialization and settings"
 requires-python = ">=3.13"
 license = "MIT"

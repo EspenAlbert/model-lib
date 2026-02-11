@@ -16,6 +16,6 @@ class Event(_Model):
 
 | Version | Change |
 |---------|--------|
-| unreleased | added base class '_Model' |
+| 0.102.1 | added base class '_Model' |
 | 0.100.0 | Made public |
 <!-- === OK_EDIT: pkg-ext event_changes === -->

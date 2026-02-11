@@ -16,6 +16,6 @@ class IgnoreFalsy(BaseModel):
 
 | Version | Change |
 |---------|--------|
-| unreleased | added base class 'BaseModel' |
+| 0.102.1 | added base class 'BaseModel' |
 | 0.100.0 | Made public |
 <!-- === OK_EDIT: pkg-ext ignorefalsy_changes === -->

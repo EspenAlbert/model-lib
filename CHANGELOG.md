@@ -1,5 +1,18 @@
 # Changelog
 
+## 0.102.1 2026-02-11T07-33Z
+
+### __Root__
+- `__ROOT__.Event`: added base class '_Model'
+- `__ROOT__.Entity`: added base class '_Model'
+- `__ROOT__.StaticSettings`: added base class 'BaseSettings'
+- `__ROOT__.StaticSettings`: field 'CACHE_DIR' default added: None
+- `__ROOT__.StaticSettings`: field 'STATIC_DIR' default added: None
+
+### Dump
+- `dump.IgnoreFalsy`: added base class 'BaseModel'
+
+
 ## 0.102.0 2026-01-24T18-45Z
 
 ### __Root__
