@@ -15,8 +15,12 @@ nav:
   - Home: index.md
   - model_lib:
     - Overview: _root/index.md
+    - Entity: _root/entity.md
+    - Event: _root/event.md
     - StaticSettings: _root/staticsettings.md
-  - dump: dump/index.md
+  - dump:
+    - Overview: dump/index.md
+    - IgnoreFalsy: dump/ignorefalsy.md
   - fields: fields/index.md
   - parse: parse/index.md
   - yaml: yaml/index.md

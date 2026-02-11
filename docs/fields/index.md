@@ -96,7 +96,7 @@ def field_names(model_type: type[BaseModel] | BaseModel) -> list[str]:
 > **Since:** 0.101.0
 
 ```python
-UtcDatetime = typing.Annotated[<class 'datetime.datetime'>, AfterValidator(func=<function ensure_timezone at 0x1100996f0>)]
+UtcDatetime = typing.Annotated[<class 'datetime.datetime'>, AfterValidator(func=<function ensure_timezone at 0x105035bc0>)]
 ```
 
 ### Changes
@@ -113,7 +113,7 @@ UtcDatetime = typing.Annotated[<class 'datetime.datetime'>, AfterValidator(func=
 > **Since:** 0.101.0
 
 ```python
-UtcDatetimeMs = typing.Annotated[<class 'datetime.datetime'>, AfterValidator(func=<function as_ms_precision_utc at 0x110071fe0>)]
+UtcDatetimeMs = typing.Annotated[<class 'datetime.datetime'>, AfterValidator(func=<function as_ms_precision_utc at 0x10501bce0>)]
 ```
 
 ### Changes

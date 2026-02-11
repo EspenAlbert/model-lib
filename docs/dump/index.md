@@ -4,7 +4,7 @@
 <!-- === OK_EDIT: pkg-ext header === -->
 
 <!-- === DO_NOT_EDIT: pkg-ext symbols === -->
-- [`IgnoreFalsy`](#ignorefalsy_def)
+- [IgnoreFalsy](./ignorefalsy.md)
 - [`dump_as_dict`](#dump_as_dict_def)
 - [`dump_as_list`](#dump_as_list_def)
 - [`dump_as_str`](#dump_as_str_def)
@@ -14,24 +14,6 @@
 ## Symbol Details
 <!-- === OK_EDIT: pkg-ext symbol_details_header === -->
 
-<!-- === DO_NOT_EDIT: pkg-ext ignorefalsy_def === -->
-<a id="ignorefalsy_def"></a>
-
-### class: `IgnoreFalsy`
-- [source](../../model_lib/dump_functions.py#L17)
-> **Since:** 0.100.0
-
-```python
-class IgnoreFalsy(BaseModel):
-    ...
-```
-
-### Changes
-
-| Version | Change |
-|---------|--------|
-| 0.100.0 | Made public |
-<!-- === OK_EDIT: pkg-ext ignorefalsy_def === -->
 <!-- === DO_NOT_EDIT: pkg-ext dump_as_dict_def === -->
 <a id="dump_as_dict_def"></a>
 

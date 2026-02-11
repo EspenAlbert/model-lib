@@ -34,6 +34,9 @@ class StaticSettings(BaseSettings):
 
 | Version | Change |
 |---------|--------|
+| unreleased | field 'STATIC_DIR' default added: None |
+| unreleased | field 'CACHE_DIR' default added: None |
+| unreleased | added base class 'BaseSettings' |
 | 0.102.0 | field 'STATIC_DIR' default removed (was: PydanticUndefined) |
 | 0.102.0 | field 'STATIC_DIR' type: Path -> Path | None |
 | 0.102.0 | field 'CACHE_DIR' default removed (was: PydanticUndefined) |
