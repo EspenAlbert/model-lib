@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.102.2 2026-02-18T06-43Z
+
+### __Root__
+- fix: refurb fixes [d86236](https://github.com/EspenAlbert/model-lib/commit/d86236)
+
+
 ## 0.102.1 2026-02-11T07-33Z
 
 ### __Root__

@@ -5,3 +5,8 @@ author: Espen Albert
 changelog_message: 'fix: refurb fixes'
 message: 'fix: refurb fixes'
 short_sha: d86236
+---
+name: 0.102.2
+ts: 2026-02-18 06:43:57.421457+00:00
+type: release
+old_version: 0.102.1

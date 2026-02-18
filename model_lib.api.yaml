@@ -1,5 +1,5 @@
 pkg_import_name: model_lib
-version: 0.102.1
+version: 0.102.2
 groups:
 - name: __ROOT__
   symbols:
@@ -461,4 +461,4 @@ groups:
         kind: var_keyword
         type_imports: []
       return_type_imports: []
-dumped_at: 2026-02-11 07:33:59.361884+00:00
+dumped_at: 2026-02-18 06:43:57.402799+00:00
