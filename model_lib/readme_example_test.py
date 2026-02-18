@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import UTC, datetime
 from typing import Union
 
 from freezegun import freeze_time
@@ -55,9 +55,9 @@ _pretty_person = """\
 
 def test_show_dumping():
     with freeze_time("2020-01-01"):
-        birthday = Birthday(date=datetime.utcnow())
+        birthday = Birthday(date=datetime.now(tz=UTC))
         # can dump non-primitives e.g., datetime
-        assert dump_as_str(birthday, "json") == '{"date":"2020-01-01T00:00:00"}'
+        assert dump_as_str(birthday, "json") == '{"date":"2020-01-01T00:00:00Z"}'
     person = Person(age=99, name="espen")
     assert dump_as_str(person, "yaml") == "name: espen\nage: 99\n"
     assert dump_as_str(person, "pretty_json") == _pretty_person

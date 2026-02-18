@@ -40,7 +40,7 @@ def test_dumping_multiline_str(tmp_path, file_regression):
         dump_yaml_file(out_path, dict(a="normal_single_line", b="Line1\nLine2\nLine3\n"))
     out_path_after = tmp_path / "without_multiline"
     dump_yaml_file(out_path_after, dict(a="normal_single_line", b="Line1\nLine2\nLine3\n"))
-    content = "---\n".join(f"#{path.name}:\n{path.read_text()}" for path in [out_path, out_path_after])
+    content = "---\n".join(f"#{path.name}:\n{path.read_text()}" for path in (out_path, out_path_after))
     file_regression.check(content, fullpath=DIR / "yaml_multiline.yaml")
 
 

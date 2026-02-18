@@ -11,7 +11,7 @@ from model_lib.serialize.json_serialize import (
 def test_dump(dumper_func):
     d = dict(a=1, b={1: "value"})
     dumped = dumper_func(d)
-    if dumper_func in [pretty_dump]:
+    if dumper_func == pretty_dump:
         assert dumped == '{\n  "a": 1,\n  "b": {\n    "1": "value"\n  }\n}'
     else:
         assert dumped == '{"a":1,"b":{"1":"value"}}'

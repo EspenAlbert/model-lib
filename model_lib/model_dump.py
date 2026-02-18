@@ -106,9 +106,7 @@ register_dumper(type, lambda t: t.__name__)
 register_dumper(Exception, repr)
 register_dumper(AsyncCancelledError, repr)
 register_dumper(timedelta, lambda td: td.total_seconds())
-try:
+with suppress(ImportError):
     from pydantic import AnyHttpUrl
 
     register_dumper(AnyHttpUrl, str)
-except ImportError:
-    pass
