@@ -68,7 +68,7 @@ class metadata_dumper:
         extra_calls: list[MetadataDumper] | None = None,
         remove_existing: bool = False,
     ):
-        self.calls = calls = [] if remove_existing else list(get_metadata_dumpers())
+        self.calls = calls = [] if remove_existing else get_metadata_dumpers().copy()
         if static_dict:
 
             def add_static_metadata(metadata: dict):

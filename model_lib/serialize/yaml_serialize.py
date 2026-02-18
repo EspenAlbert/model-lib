@@ -280,7 +280,7 @@ def _dedent_standalone_brackets(raw: str) -> str:
 
 
 _key_example = "'16': START_BRACKETS- include QUOTEcommon.labels.standardQUOTE . | nindent 8 END_BRACKETS"
-key_regex = re.compile(r"^(\s+)'\d+': ('?START_BRACKETS.*)$", flags=re.M)
+key_regex = re.compile(r"^(\s+)'\d+': ('?START_BRACKETS.*)$", flags=re.MULTILINE)
 
 
 def _remove_indent(m: Match) -> str:
@@ -328,7 +328,7 @@ def _indent_standalone_templates(raw: str) -> str:
     return "\n".join(modified)
 
 
-sub_quoted = re.compile(r"'\{\{.*?\}\}'$", flags=re.M)
+sub_quoted = re.compile(r"'\{\{.*?\}\}'$", flags=re.MULTILINE)
 
 
 def remove_quotes(m: Match) -> str:

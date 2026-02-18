@@ -10,8 +10,8 @@ def test_metadata_dump_doesnt_change_original_metadata():
         metadata[MY_KEY] = MY_VALUE
 
     remove_dump_call = add_metadata_dumper(add_my_metadata)
-    assert current_metadata() == {}
+    assert not current_metadata()
     assert dump_metadata() == {MY_KEY: MY_VALUE}
     remove_dump_call()
-    assert current_metadata() == {}
-    assert dump_metadata() == {}
+    assert not current_metadata()
+    assert not dump_metadata()

@@ -37,7 +37,7 @@ class _Model(BaseModel):
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
         cls_name = cls.__name__
-        if cls_name in ["Event", "Entity"]:
+        if cls_name in ("Event", "Entity"):
             return
         if old_cls := _model_name_to_type.get(cls_name) and not cls_name.startswith("_"):
             raise ClsNameAlreadyExist(as_name(cls), as_name(old_cls))

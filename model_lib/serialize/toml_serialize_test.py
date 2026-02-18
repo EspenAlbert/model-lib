@@ -84,7 +84,7 @@ model_example = _TomlModel(name="I am toml!", child=_TomlChild(age=2))
 def test_dump_toml():
     instance = model_example
     dumped = dump_as_str(instance, "toml")
-    assert dumped == f"{_SOME_TOML}"
+    assert dumped == _SOME_TOML
 
 
 def test_parse_model():
