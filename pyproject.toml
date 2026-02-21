@@ -62,7 +62,7 @@ target-version = "py313"
 # UP046: use type parameters on functions instead of TypeVar
 # UP047: use type parameters instead of `Generic[T]` subclass
 extend-ignore = ["E501", "UP006", "UP007", "UP035", "UP040", "UP046", "UP047"]
-extend-select = ["Q", "RUF100", "C90", "UP", "I", "T"]
+extend-select = ["Q", "RUF100", "C90", "UP", "I", "T", "FURB"]
 # === OK_EDIT: path-sync ruff ===
 
 # === DO_NOT_EDIT: path-sync pytest ===
@@ -78,13 +78,25 @@ omit = ["*_test.py"]
 exclude_lines = ["no cov", "if __name__ == .__main__.:"]
 # === OK_EDIT: path-sync coverage ===
 
-# === DO_NOT_EDIT: path-sync dev ===
+# === DO_NOT_EDIT: path-sync vulture ===
+[tool.vulture]
+min_confidence = 80
+ignore_names = ["mock_*", "Mock*", "*_mock", "protocol", "url_prefix", "child", "is_new_thread", "func_name", "loader"]
+exclude = [".venv/", "*test.py"]
+# === OK_EDIT: path-sync vulture ===
+
+# === DO_NOT_EDIT: path-sync dev-lint ===
 [dependency-groups]
-dev = [
+dev-lint = [
   "pyright>=1.1",
+  "ruff>=0.14",
+  "vulture>=2.14",
+]
+# === OK_EDIT: path-sync dev-lint ===
+
+dev-test = [
   "pytest>=9.0",
   "pytest-cov>=7.0",
-  "ruff>=0.14",
   "xdoctest>=1.2",
   "freezegun>=1.5",
   "pytest-regressions>=2.6",
@@ -92,7 +104,7 @@ dev = [
   "pytest-subtests>=0.13",
   "tomli-w>=1.1",
 ]
-# === OK_EDIT: path-sync dev ===
+dev = [{include-group = "dev-lint"}, {include-group = "dev-test"}]
 
 # === DO_NOT_EDIT: path-sync docs ===
 docs = [
