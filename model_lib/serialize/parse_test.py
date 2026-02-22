@@ -42,7 +42,7 @@ def test_dump_and_parse_a_str():
 
 def test_parse_with_model_name_backup():
     model = _MyModelWithAge(name="backup", age=11)
-    model_dict = model.dict()
+    model_dict = model.model_dump()
     metadata = {
         METADATA_MODEL_NAME_FIELD: "_UNKNOWN",
         METADATA_MODEL_NAME_BACKUP_FIELD: _MyModelWithAge.__name__,
@@ -55,6 +55,6 @@ def test_parse_with_model_name_backup():
 
 def test_parse_directly():
     model = _MyModelWithAge(name="no_metadata", age=12)
-    model_payload = model.dict()
+    model_payload = model.model_dump()
     model_back, _ = parse_model_metadata(model_payload, t=_MyModelWithAge)
     assert model == model_back
