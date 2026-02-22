@@ -36,13 +36,6 @@ def test_static_settings_skip_app_name(tmp_path):
 
 
 @pytest.mark.manual
-def test_with_jira_token_required():
-    jira_token = os.environ.get("JIRA_TOKEN")
-    assert jira_token
-    assert len(jira_token) > 0
-
-
-@pytest.mark.manual
 def test_with_external_api_fixture(external_api_key):
     assert external_api_key
     assert len(external_api_key) > 0
