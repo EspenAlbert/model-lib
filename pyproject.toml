@@ -99,6 +99,7 @@ dev-test = [
   "pytest-cov>=7.0",
   "xdoctest>=1.2",
   "freezegun>=1.5",
+  "pytest-model-lib>=0.2.0",
   "pytest-regressions>=2.6",
   "pytest-datadir>=1.5",
   "pytest-subtests>=0.13",
