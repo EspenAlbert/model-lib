@@ -39,7 +39,8 @@ def get_field_type(field):
 
 
 def model_fields(model):
-    return model.model_fields
+    cls = model if isinstance(model, type) else type(model)
+    return cls.model_fields
 
 
 def model_dump(model, **kwargs):
@@ -71,7 +72,7 @@ def cls_defaults_required_as(model: Type[BaseModel], required_value: str = "CHAN
 def cls_local_defaults_required_as(model: Type[BaseModel], required_value: str = "CHANGE_ME") -> dict:
     local_hints = model.__annotations__
     defaults = cls_defaults(model)
-    return {key: defaults.get(key, required_value) for key in model.__fields__ if key in local_hints}
+    return {key: defaults.get(key, required_value) for key in model.model_fields if key in local_hints}
 
 
 T = TypeVar("T")

@@ -4,7 +4,6 @@
 <!-- === OK_EDIT: pkg-ext header === -->
 
 <!-- === DO_NOT_EDIT: pkg-ext symbols === -->
-- [`BaseModelT`](#basemodelt_def)
 - [`UtcDatetime`](#utcdatetime_def)
 - [`UtcDatetimeMs`](#utcdatetimems_def)
 - [`copy_and_validate`](#copy_and_validate_def)
@@ -21,7 +20,7 @@
 <a id="copy_and_validate_def"></a>
 
 ### function: `copy_and_validate`
-- [source](../../model_lib/pydantic_utils.py#L93)
+- [source](../../model_lib/pydantic_utils.py#L94)
 > **Since:** 0.100.0
 
 ```python
@@ -75,7 +74,7 @@ def env_var_names(settings: BaseSettings | type[BaseSettings]) -> list[str]:
 <a id="field_names_def"></a>
 
 ### function: `field_names`
-- [source](../../model_lib/pydantic_utils.py#L118)
+- [source](../../model_lib/pydantic_utils.py#L119)
 > **Since:** 0.100.0
 
 ```python
@@ -123,20 +122,3 @@ UtcDatetimeMs = typing.Annotated[<class 'datetime.datetime'>, AfterValidator(fun
 |---------|--------|
 | 0.101.0 | Made public |
 <!-- === OK_EDIT: pkg-ext utcdatetimems_def === -->
-<!-- === DO_NOT_EDIT: pkg-ext basemodelt_def === -->
-<a id="basemodelt_def"></a>
-
-### type_alias: `BaseModelT`
-- [source](../../model_lib/pydantic_utils.py)
-> **Since:** 0.100.0
-
-```python
-BaseModelT = ~BaseModelT
-```
-
-### Changes
-
-| Version | Change |
-|---------|--------|
-| 0.100.0 | Made public |
-<!-- === OK_EDIT: pkg-ext basemodelt_def === -->

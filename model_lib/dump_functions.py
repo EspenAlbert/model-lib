@@ -10,7 +10,7 @@ from model_lib.model_dump import register_dumper
 def base_model_dumper(model: BaseModel):
     if isinstance(model, RootModel):
         return model.root
-    fields = model.model_fields  # type: ignore
+    fields = type(model).model_fields
     return {key: value for key, value in model if key in fields}
 
 
