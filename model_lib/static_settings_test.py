@@ -1,5 +1,3 @@
-import os
-
 import pytest
 from pytest_model_lib.plugin import skip_unless_env
 
