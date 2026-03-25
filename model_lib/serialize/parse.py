@@ -36,6 +36,7 @@ T = TypeVar("T")
 _format_parsers: Dict[FileFormat, Callable[[str], ModelRawT]] = {
     FileFormat.json: parse_json,
     FileFormat.yaml: parse_yaml_str,
+    FileFormat.yml: parse_yaml_str,
     FileFormat.toml: parse_toml_str,
     FileFormat.toml_compact: parse_toml_str,
 }
