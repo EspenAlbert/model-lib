@@ -225,6 +225,39 @@ def _construct_timestamp_as_str(loader, node):
     return node.value
 
 
+class _DuplicateAnchorSafeLoader(yaml.SafeLoader):
+    """Custom SafeLoader that allows duplicate YAML anchors instead of raising ComposerError."""
+
+    def compose_node(self, parent, index):
+        if self.check_event(yaml.events.AliasEvent):
+            return super().compose_node(parent, index)
+        event = self.peek_event()
+        anchor = event.anchor
+        if anchor is not None:
+            self.anchors.pop(anchor, None)
+        return super().compose_node(parent, index)
+
+
+class allow_duplicate_anchors:
+    """Context manager to allow duplicate YAML anchors during parsing.
+
+    Some YAML files (e.g. codegen configs) reuse anchor names across sections.
+    PyYAML raises ComposerError for these. This temporarily swaps in a loader
+    that drops old anchors before re-registering.
+
+    Usage:
+        with allow_duplicate_anchors():
+            data = parse_payload(path)
+    """
+
+    def __enter__(self):
+        self.old_loader = yaml.SafeLoader
+        yaml.SafeLoader = _DuplicateAnchorSafeLoader
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        yaml.SafeLoader = self.old_loader
+
+
 class _NoTimestampSafeLoader(yaml.SafeLoader):
     """Custom SafeLoader that disables timestamp auto-conversion to prevent precision loss."""
 

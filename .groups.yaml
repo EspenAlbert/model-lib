@@ -40,6 +40,7 @@ groups:
   owned_modules:
   - serialize.yaml_serialize
   owned_refs:
+  - serialize.yaml_serialize.allow_duplicate_anchors
   - serialize.yaml_serialize.edit_helm_template
   - serialize.yaml_serialize.edit_yaml
   - serialize.yaml_serialize.multiline_pipe_style
