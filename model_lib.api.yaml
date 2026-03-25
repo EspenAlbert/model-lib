@@ -1,5 +1,5 @@
 pkg_import_name: model_lib
-version: 0.102.2
+version: 0.103.0
 groups:
 - name: __ROOT__
   symbols:
@@ -182,7 +182,7 @@ groups:
   - name: copy_and_validate
     module_path: pydantic_utils
     docstring: ''
-    line_number: 93
+    line_number: 94
     type: function
     signature:
       parameters:
@@ -232,7 +232,7 @@ groups:
   - name: field_names
     module_path: pydantic_utils
     docstring: ''
-    line_number: 118
+    line_number: 119
     type: function
     signature:
       parameters:
@@ -249,7 +249,7 @@ groups:
   - name: parse_dict
     module_path: serialize.parse
     docstring: ''
-    line_number: 126
+    line_number: 127
     type: function
     signature:
       parameters:
@@ -271,7 +271,7 @@ groups:
   - name: parse_list
     module_path: serialize.parse
     docstring: ''
-    line_number: 119
+    line_number: 120
     type: function
     signature:
       parameters:
@@ -293,7 +293,7 @@ groups:
   - name: parse_model
     module_path: serialize.parse
     docstring: ''
-    line_number: 50
+    line_number: 51
     type: function
     signature:
       parameters:
@@ -330,7 +330,7 @@ groups:
   - name: parse_payload
     module_path: serialize.parse
     docstring: ''
-    line_number: 133
+    line_number: 134
     type: function
     signature:
       parameters:
@@ -348,6 +348,25 @@ groups:
       return_type_imports: []
 - name: yaml
   symbols:
+  - name: allow_duplicate_anchors
+    module_path: serialize.yaml_serialize
+    docstring: "Context manager to allow duplicate YAML anchors during parsing.\n\nSome YAML files (e.g. codegen configs) reuse anchor names across sections.\nPyYAML raises ComposerError for these. This temporarily swaps in a loader\nthat drops old anchors before re-registering.\n\nUsage:\n    with allow_duplicate_anchors():\n        data = parse_payload(path)\n"
+    line_number: 241
+    type: class
+    mro_bases: []
+    num_direct_bases: 0
+    init_signature:
+      parameters:
+      - name: self
+        kind: positional_only
+        type_imports: []
+      - name: args
+        kind: var_positional
+        type_imports: []
+      - name: kwargs
+        kind: var_keyword
+        type_imports: []
+      return_type_imports: []
   - name: edit_helm_template
     module_path: serialize.yaml_serialize
     docstring: ''
@@ -461,4 +480,4 @@ groups:
         kind: var_keyword
         type_imports: []
       return_type_imports: []
-dumped_at: 2026-02-18 06:43:57.402799+00:00
+dumped_at: 2026-03-25 14:35:25.548963+00:00

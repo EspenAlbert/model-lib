@@ -102,7 +102,7 @@ Usage:
 
 ### class: `allow_duplicate_anchors`
 - [source](../../model_lib/serialize/yaml_serialize.py#L241)
-> **Since:** unreleased
+> **Since:** 0.103.0
 
 ```python
 class allow_duplicate_anchors:
@@ -123,5 +123,5 @@ Usage:
 
 | Version | Change |
 |---------|--------|
-| unreleased | Made public |
+| 0.103.0 | Made public |
 <!-- === OK_EDIT: pkg-ext allow_duplicate_anchors_def === -->

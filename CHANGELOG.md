@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.103.0 2026-03-25T14-35Z
+
+### Parse
+- fix(parse): add support for .yml file format in parse.py [0a98e8](https://github.com/EspenAlbert/model-lib/commit/0a98e8)
+
+### Yaml
+- New class `allow_duplicate_anchors`
+
+
 ## 0.102.2 2026-02-18T06-43Z
 
 ### __Root__

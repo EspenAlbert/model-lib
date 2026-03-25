@@ -12,3 +12,8 @@ author: Espen Albert
 changelog_message: 'fix(parse): add support for .yml file format in parse.py'
 message: 'fix(parse): add support for .yml file format in parse.py'
 short_sha: 0a98e8
+---
+name: 0.103.0
+ts: 2026-03-25 14:35:25.568758+00:00
+type: release
+old_version: 0.102.2
