@@ -1,0 +1,14 @@
+name: allow_duplicate_anchors
+ts: 2026-03-25 14:33:47.296505+00:00
+type: make_public
+details: created in serialize/yaml_serialize.py
+full_path: serialize.yaml_serialize.allow_duplicate_anchors
+group: yaml
+---
+name: parse
+ts: 2026-03-25 14:33:54.114862+00:00
+type: fix
+author: Espen Albert
+changelog_message: 'fix(parse): add support for .yml file format in parse.py'
+message: 'fix(parse): add support for .yml file format in parse.py'
+short_sha: 0a98e8

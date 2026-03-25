@@ -4,6 +4,7 @@
 <!-- === OK_EDIT: pkg-ext header === -->
 
 <!-- === DO_NOT_EDIT: pkg-ext symbols === -->
+- [`allow_duplicate_anchors`](#allow_duplicate_anchors_def)
 - [`edit_helm_template`](#edit_helm_template_def)
 - [`edit_yaml`](#edit_yaml_def)
 - [`multiline_pipe_style`](#multiline_pipe_style_def)
@@ -96,3 +97,31 @@ Usage:
 |---------|--------|
 | 0.100.0 | Made public |
 <!-- === OK_EDIT: pkg-ext no_yaml_anchors_def === -->
+<!-- === DO_NOT_EDIT: pkg-ext allow_duplicate_anchors_def === -->
+<a id="allow_duplicate_anchors_def"></a>
+
+### class: `allow_duplicate_anchors`
+- [source](../../model_lib/serialize/yaml_serialize.py#L241)
+> **Since:** unreleased
+
+```python
+class allow_duplicate_anchors:
+    ...
+```
+
+Context manager to allow duplicate YAML anchors during parsing.
+
+Some YAML files (e.g. codegen configs) reuse anchor names across sections.
+PyYAML raises ComposerError for these. This temporarily swaps in a loader
+that drops old anchors before re-registering.
+
+Usage:
+    with allow_duplicate_anchors():
+        data = parse_payload(path)
+
+### Changes
+
+| Version | Change |
+|---------|--------|
+| unreleased | Made public |
+<!-- === OK_EDIT: pkg-ext allow_duplicate_anchors_def === -->

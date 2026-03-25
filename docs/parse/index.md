@@ -18,7 +18,7 @@
 <a id="parse_dict_def"></a>
 
 ### function: `parse_dict`
-- [source](../../model_lib/serialize/parse.py#L126)
+- [source](../../model_lib/serialize/parse.py#L127)
 > **Since:** 0.100.0
 
 ```python
@@ -36,7 +36,7 @@ def parse_dict(payload: ~RegisteredPayloadT | str | bytes | Path | dict | list, 
 <a id="parse_list_def"></a>
 
 ### function: `parse_list`
-- [source](../../model_lib/serialize/parse.py#L119)
+- [source](../../model_lib/serialize/parse.py#L120)
 > **Since:** 0.100.0
 
 ```python
@@ -54,7 +54,7 @@ def parse_list(payload: ~RegisteredPayloadT | str | bytes | Path | dict | list, 
 <a id="parse_model_def"></a>
 
 ### function: `parse_model`
-- [source](../../model_lib/serialize/parse.py#L50)
+- [source](../../model_lib/serialize/parse.py#L51)
 > **Since:** 0.100.0
 
 ```python
@@ -72,7 +72,7 @@ def parse_model(payload: ~RegisteredPayloadT | str | bytes | Path | dict | list,
 <a id="parse_payload_def"></a>
 
 ### function: `parse_payload`
-- [source](../../model_lib/serialize/parse.py#L133)
+- [source](../../model_lib/serialize/parse.py#L134)
 > **Since:** 0.100.0
 
 ```python
