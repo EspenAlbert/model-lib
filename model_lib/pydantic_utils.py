@@ -4,7 +4,6 @@ from datetime import UTC, datetime
 from typing import Any, List, Type, TypeVar, Union
 
 from pydantic import AfterValidator, BaseModel, TypeAdapter, conint
-from pydantic.v1.datetime_parse import parse_datetime
 from pydantic_settings import BaseSettings
 from typing_extensions import Annotated, TypeAlias
 from zero_3rdparty.datetime_utils import as_ms_precision_utc, ensure_tz
@@ -95,7 +94,9 @@ def copy_and_validate(model: BaseModelT, **updates) -> BaseModelT:
     return model.model_copy(update=updates, deep=True)
 
 
-parse_dt = parse_datetime
+_DT_ADAPTER = TypeAdapter(datetime)
+
+parse_dt = _DT_ADAPTER.validate_python
 
 
 def ensure_timezone(value: datetime):
