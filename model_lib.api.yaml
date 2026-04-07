@@ -1,5 +1,5 @@
 pkg_import_name: model_lib
-version: 0.103.0
+version: 0.103.1
 groups:
 - name: __ROOT__
   symbols:
@@ -182,7 +182,7 @@ groups:
   - name: copy_and_validate
     module_path: pydantic_utils
     docstring: ''
-    line_number: 94
+    line_number: 93
     type: function
     signature:
       parameters:
@@ -198,7 +198,7 @@ groups:
   - name: env_var_name
     module_path: pydantic_utils
     docstring: ''
-    line_number: 13
+    line_number: 12
     type: function
     signature:
       parameters:
@@ -217,7 +217,7 @@ groups:
   - name: env_var_names
     module_path: pydantic_utils
     docstring: ''
-    line_number: 29
+    line_number: 28
     type: function
     signature:
       parameters:
@@ -232,7 +232,7 @@ groups:
   - name: field_names
     module_path: pydantic_utils
     docstring: ''
-    line_number: 119
+    line_number: 120
     type: function
     signature:
       parameters:
@@ -480,4 +480,4 @@ groups:
         kind: var_keyword
         type_imports: []
       return_type_imports: []
-dumped_at: 2026-03-25 14:35:25.548963+00:00
+dumped_at: 2026-04-07 09:37:25.774076+00:00

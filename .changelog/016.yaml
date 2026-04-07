@@ -1,3 +1,8 @@
 ts: 2026-04-07 09:35:58.151431+00:00
 type: chore
 description: pydantic-v1-import-drop
+---
+name: 0.103.1
+ts: 2026-04-07 09:37:25.793235+00:00
+type: release
+old_version: 0.103.0

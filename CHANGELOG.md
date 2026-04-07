@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.103.1 2026-04-07T09-37Z
+
+### Other Changes
+- Chore: pydantic-v1-import-drop
+
+
 ## 0.103.0 2026-03-25T14-35Z
 
 ### Parse
