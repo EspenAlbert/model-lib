@@ -12,7 +12,6 @@ groups:
   owned_modules:
   - dump_functions
   - serialize.dump
-  - serialize.json_serialize
   owned_refs:
   - dump_functions.IgnoreFalsy
   - serialize.dump.dump_as_dict
@@ -22,7 +21,6 @@ groups:
   owned_modules:
   - pydantic_utils
   owned_refs:
-  - pydantic_utils.BaseModelT
   - pydantic_utils.UtcDatetime
   - pydantic_utils.UtcDatetimeMs
   - pydantic_utils.copy_and_validate

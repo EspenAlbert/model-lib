@@ -18,7 +18,7 @@
 <a id="dump_as_dict_def"></a>
 
 ### function: `dump_as_dict`
-- [source](../../model_lib/serialize/dump.py#L67)
+- [source](../../model_lib/serialize/dump.py#L69)
 > **Since:** 0.100.0
 
 ```python
@@ -36,7 +36,7 @@ def dump_as_dict(instance: object) -> dict:
 <a id="dump_as_list_def"></a>
 
 ### function: `dump_as_list`
-- [source](../../model_lib/serialize/dump.py#L72)
+- [source](../../model_lib/serialize/dump.py#L74)
 > **Since:** 0.100.0
 
 ```python
@@ -54,7 +54,7 @@ def dump_as_list(instance: Iterable[~ModelT]) -> list:
 <a id="dump_as_str_def"></a>
 
 ### function: `dump_as_str`
-- [source](../../model_lib/serialize/dump.py#L55)
+- [source](../../model_lib/serialize/dump.py#L57)
 > **Since:** 0.100.0
 
 ```python
