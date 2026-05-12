@@ -24,6 +24,7 @@ from model_lib.errors import (
 from model_lib.model_base import model_name_to_t
 from zero_3rdparty.object_name import as_name
 
+from .env_serialize import parse_env_str  # no cov
 from .json_serialize import parse as parse_json
 from .toml_serialize import parse_toml_str
 from .yaml_serialize import parse_yaml_str
@@ -39,12 +40,14 @@ _format_parsers: Dict[FileFormat, Callable[[str], ModelRawT]] = {
     FileFormat.yml: parse_yaml_str,
     FileFormat.toml: parse_toml_str,
     FileFormat.toml_compact: parse_toml_str,
+    FileFormat.env: parse_env_str,
 }
 _file_format_to_raw_format: Dict[str, FileFormat] = {
     ".json": FileFormat.json,
     ".yaml": FileFormat.yaml,
     ".yml": FileFormat.yaml,
     ".toml": FileFormat.toml,
+    ".env": FileFormat.env,
 }
 
 
@@ -149,7 +152,8 @@ def _parse_bytes(payload: bytes, format=FileFormat.json):
 
 @parse_payload.register
 def _parse_path(payload: Path, format=FileFormat.json):
-    file_format = payload.suffix
+    # dotfiles like `.env` have suffix="" so fall back to checking the full name
+    file_format = payload.suffix or payload.name
     if raw_format := _file_format_to_raw_format.get(file_format):
         if raw_format != format:
             format = file_format.lstrip(".")

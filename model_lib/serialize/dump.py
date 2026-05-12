@@ -15,6 +15,7 @@ from model_lib.metadata.metadata_dump import dump_metadata
 from model_lib.model_base import ModelT
 from model_lib.model_dump import registered_types
 from model_lib.pydantic_utils import model_json
+from model_lib.serialize.env_serialize import dump_env_str  # no cov
 from model_lib.serialize.json_serialize import dump as _dump_json
 from model_lib.serialize.json_serialize import parse as _parse_json
 from model_lib.serialize.json_serialize import pretty_dump as _dump_pretty_json
@@ -49,6 +50,7 @@ _payload_dumpers: dict[FileFormat | str, Callable[[Any], str]] = {
     FileFormat.pydantic_json: model_json,
     FileFormat.toml: dump_as_toml_str,
     FileFormat.toml_compact: dump_as_toml_str_compact,
+    FileFormat.env: dump_env_str,
 }
 
 
