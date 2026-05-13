@@ -5,7 +5,7 @@ from io import StringIO
 from dotenv import dotenv_values
 
 
-def parse_env_str(data: str) -> dict:
+def parse_env_str(data: str) -> dict[str, str]:
     return dict(dotenv_values(stream=StringIO(data)))
 
 

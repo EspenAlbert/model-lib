@@ -1,6 +1,8 @@
 from pathlib import Path
 from typing import cast
 
+import pytest
+
 from model_lib.constants import FileFormat
 from model_lib.serialize.dump import dump_as_str
 from model_lib.serialize.env_serialize import dump_env_str, parse_env_str
@@ -50,3 +52,8 @@ def test_parse_payload_path(tmp_path: Path):
     result = cast(dict, parse_payload(env_file))
     assert result["DB_HOST"] == "localhost"
     assert result["APP_SECRET"] == "s3cr3t"
+
+
+def test_dump_env_str_non_dict_raises():
+    with pytest.raises(TypeError, match="env format only supports flat dicts"):
+        dump_env_str(["KEY=value"])
