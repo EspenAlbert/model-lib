@@ -24,7 +24,7 @@ from model_lib.errors import (
 from model_lib.model_base import model_name_to_t
 from zero_3rdparty.object_name import as_name
 
-from .env_serialize import parse_env_str  # no cov
+from .env_serialize import parse_env_str
 from .json_serialize import parse as parse_json
 from .toml_serialize import parse_toml_str
 from .yaml_serialize import parse_yaml_str
