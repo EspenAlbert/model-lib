@@ -1,5 +1,5 @@
 pkg_import_name: model_lib
-version: 0.103.1
+version: 0.103.2
 groups:
 - name: __ROOT__
   symbols:
@@ -115,7 +115,7 @@ groups:
   - name: dump_as_dict
     module_path: serialize.dump
     docstring: ''
-    line_number: 67
+    line_number: 69
     type: function
     signature:
       parameters:
@@ -128,7 +128,7 @@ groups:
   - name: dump_as_list
     module_path: serialize.dump
     docstring: ''
-    line_number: 72
+    line_number: 74
     type: function
     signature:
       parameters:
@@ -147,7 +147,7 @@ groups:
       ''''
 
       '
-    line_number: 55
+    line_number: 57
     type: function
     signature:
       parameters:
@@ -249,7 +249,7 @@ groups:
   - name: parse_dict
     module_path: serialize.parse
     docstring: ''
-    line_number: 127
+    line_number: 130
     type: function
     signature:
       parameters:
@@ -271,7 +271,7 @@ groups:
   - name: parse_list
     module_path: serialize.parse
     docstring: ''
-    line_number: 120
+    line_number: 123
     type: function
     signature:
       parameters:
@@ -293,7 +293,7 @@ groups:
   - name: parse_model
     module_path: serialize.parse
     docstring: ''
-    line_number: 51
+    line_number: 54
     type: function
     signature:
       parameters:
@@ -330,7 +330,7 @@ groups:
   - name: parse_payload
     module_path: serialize.parse
     docstring: ''
-    line_number: 134
+    line_number: 137
     type: function
     signature:
       parameters:
@@ -480,4 +480,4 @@ groups:
         kind: var_keyword
         type_imports: []
       return_type_imports: []
-dumped_at: 2026-04-07 09:37:25.774076+00:00
+dumped_at: 2026-05-15 13:36:44.281153+00:00

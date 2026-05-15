@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.103.2 2026-05-15T13-36Z
+
+### Other Changes
+- Chore: .env format support
+
+
 ## 0.103.1 2026-04-07T09-37Z
 
 ### Other Changes

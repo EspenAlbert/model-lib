@@ -16,3 +16,8 @@ full_path: model_dump.dump
 ts: 2026-05-15 13:35:35.674757+00:00
 type: chore
 description: .env format support
+---
+name: 0.103.2
+ts: 2026-05-15 13:36:44.305174+00:00
+type: release
+old_version: 0.103.1

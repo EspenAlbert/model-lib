@@ -8,7 +8,7 @@ from model_lib import parse
 from model_lib import yaml
 from model_lib.static_settings import StaticSettings
 
-VERSION = "0.103.1"
+VERSION = "0.103.2"
 __all__ = [
     "dump",
     "fields",
