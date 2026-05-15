@@ -12,3 +12,7 @@ name: dump
 ts: 2026-05-12 19:39:30.554172+00:00
 type: keep_private
 full_path: model_dump.dump
+---
+ts: 2026-05-15 13:35:35.674757+00:00
+type: chore
+description: .env format support
