@@ -24,6 +24,8 @@ class FileFormat(StrEnum):
     # pip install tomlkit
     toml = "toml"
     toml_compact = "toml_compact"
+    # pip install python-dotenv
+    env = "env"  # no cov
 
 
 FileFormatT = Union[FileFormat, str]

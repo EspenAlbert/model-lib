@@ -21,6 +21,7 @@ expected_dump_formats: list[str] = [
     "pydantic_json",
     "toml",
     "toml_compact",
+    "env",
 ]
 missing_dump_formats: set[str] = set(FileFormat) - set(expected_dump_formats)  # type: ignore
 assert not missing_dump_formats, f"found missing dump formats: {missing_dump_formats}"
