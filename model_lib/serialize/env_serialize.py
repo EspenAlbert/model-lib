@@ -6,7 +6,8 @@ from dotenv import dotenv_values
 
 
 def parse_env_str(data: str) -> dict[str, str]:
-    return dict(dotenv_values(stream=StringIO(data)))
+    raw = dotenv_values(stream=StringIO(data))
+    return {k: "" if v is None else v for k, v in raw.items()}
 
 
 def dump_env_str(data: object) -> str:
