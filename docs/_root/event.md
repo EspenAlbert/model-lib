@@ -6,8 +6,7 @@
 > **Since:** 0.100.0
 
 ```python
-class Event(_Model):
-    ...
+class Event(_Model): ...
 ```
 <!-- === OK_EDIT: pkg-ext event_def === -->
 

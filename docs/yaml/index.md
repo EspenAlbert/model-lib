@@ -23,8 +23,7 @@
 > **Since:** 0.100.0
 
 ```python
-class edit_helm_template:
-    ...
+class edit_helm_template: ...
 ```
 
 ### Changes
@@ -41,8 +40,7 @@ class edit_helm_template:
 > **Since:** 0.100.0
 
 ```python
-class edit_yaml:
-    ...
+class edit_yaml: ...
 ```
 
 ### Changes
@@ -59,8 +57,7 @@ class edit_yaml:
 > **Since:** 0.100.0
 
 ```python
-class multiline_pipe_style:
-    ...
+class multiline_pipe_style: ...
 ```
 
 ### Changes
@@ -77,8 +74,7 @@ class multiline_pipe_style:
 > **Since:** 0.100.0
 
 ```python
-class no_yaml_anchors:
-    ...
+class no_yaml_anchors: ...
 ```
 
 Context manager to disable YAML anchors/aliases during serialization.
@@ -105,8 +101,7 @@ Usage:
 > **Since:** 0.103.0
 
 ```python
-class allow_duplicate_anchors:
-    ...
+class allow_duplicate_anchors: ...
 ```
 
 Context manager to allow duplicate YAML anchors during parsing.

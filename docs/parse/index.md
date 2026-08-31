@@ -22,8 +22,9 @@
 > **Since:** 0.100.0
 
 ```python
-def parse_dict(payload: ~RegisteredPayloadT | str | bytes | Path | dict | list, format: FileFormat | str = 'json') -> dict:
-    ...
+def parse_dict(
+    payload: ~RegisteredPayloadT | str | bytes | Path | dict | list, format: FileFormat | str = "json"
+) -> dict: ...
 ```
 
 ### Changes
@@ -40,8 +41,9 @@ def parse_dict(payload: ~RegisteredPayloadT | str | bytes | Path | dict | list, 
 > **Since:** 0.100.0
 
 ```python
-def parse_list(payload: ~RegisteredPayloadT | str | bytes | Path | dict | list, format: FileFormat | str = 'json') -> list:
-    ...
+def parse_list(
+    payload: ~RegisteredPayloadT | str | bytes | Path | dict | list, format: FileFormat | str = "json"
+) -> list: ...
 ```
 
 ### Changes
@@ -58,8 +60,12 @@ def parse_list(payload: ~RegisteredPayloadT | str | bytes | Path | dict | list, 
 > **Since:** 0.100.0
 
 ```python
-def parse_model(payload: ~RegisteredPayloadT | str | bytes | Path | dict | list, t: type[~T] | None = None, format: FileFormat | str = 'json', extra_kwargs: Mapping[str, Any] | None = None) -> ~T:
-    ...
+def parse_model(
+    payload: ~RegisteredPayloadT | str | bytes | Path | dict | list,
+    t: type[~T] | None = None,
+    format: FileFormat | str = "json",
+    extra_kwargs: Mapping[str, Any] | None = None,
+) -> ~T: ...
 ```
 
 ### Changes
@@ -76,8 +82,7 @@ def parse_model(payload: ~RegisteredPayloadT | str | bytes | Path | dict | list,
 > **Since:** 0.100.0
 
 ```python
-def parse_payload(payload: object, format = 'json') -> dict | list:
-    ...
+def parse_payload(payload: object, format="json") -> dict | list: ...
 ```
 
 ### Changes

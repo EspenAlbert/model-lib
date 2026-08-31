@@ -6,8 +6,7 @@
 > **Since:** 0.100.0
 
 ```python
-class Entity(_Model):
-    ...
+class Entity(_Model): ...
 ```
 <!-- === OK_EDIT: pkg-ext entity_def === -->
 
