@@ -82,7 +82,7 @@ SeqModelT = TypeVar("SeqModelT")
 
 
 class SeqModel(RootModel[list[SeqModelT]]):
-    def __iter__(self) -> Iterator[SeqModelT]:
+    def __iter__(self) -> Iterator[SeqModelT]:  # type: ignore[override]
         return iter(self.root)
 
     def __getitem__(self, item):
