@@ -35,9 +35,9 @@ def test_dump_and_parse_a_str():
     raw_string = "raw string as a model"
     metadata = dict(a=1, b="ok", model_name="str")
     dumped = dump_with_metadata(raw_string, metadata)
-    model, metadat_back = parse_model_metadata(dumped)
+    model, metadata_back = parse_model_metadata(dumped)
     assert model == raw_string
-    assert metadat_back == metadata
+    assert metadata_back == metadata
 
 
 def test_parse_with_model_name_backup():
