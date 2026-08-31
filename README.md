@@ -144,7 +144,7 @@ class CustomKafkaPayload:
         self.body = body
 
 
-def custom_parse_kafka(payload: CustomKafkaPayload, format: str) -> dict | list: # use Union[dict, list] if py3.9
+def custom_parse_kafka(payload: CustomKafkaPayload, format: str) -> dict | list:  # use Union[dict, list] if py3.9
     return parse_payload(payload.body, format)
 
 
@@ -154,8 +154,6 @@ register_parser(CustomKafkaPayload, custom_parse_kafka)
 def test_custom_dump():
     instance = CustomDumping("Espen", "Python")
     assert dump(instance, "json") == '{"full_name":"Espen Python"}'
-    payload = CustomKafkaPayload(
-        body='{"first_name": "Espen", "last_name": "Python"}', topic="some-topic"
-    )
+    payload = CustomKafkaPayload(body='{"first_name": "Espen", "last_name": "Python"}', topic="some-topic")
     assert parse_model(payload, t=CustomDumping) == instance
 ```

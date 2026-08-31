@@ -25,8 +25,7 @@
 > **Since:** 0.100.0
 
 ```python
-def copy_and_validate(model: ~BaseModelT, **updates) -> ~BaseModelT:
-    ...
+def copy_and_validate(model: ~BaseModelT, **updates) -> ~BaseModelT: ...
 ```
 
 ### Changes
@@ -43,8 +42,7 @@ def copy_and_validate(model: ~BaseModelT, **updates) -> ~BaseModelT:
 > **Since:** 0.100.0
 
 ```python
-def env_var_name(settings: BaseSettings | type[BaseSettings], field_name: str) -> str:
-    ...
+def env_var_name(settings: BaseSettings | type[BaseSettings], field_name: str) -> str: ...
 ```
 
 ### Changes
@@ -61,8 +59,7 @@ def env_var_name(settings: BaseSettings | type[BaseSettings], field_name: str) -
 > **Since:** 0.100.0
 
 ```python
-def env_var_names(settings: BaseSettings | type[BaseSettings]) -> list[str]:
-    ...
+def env_var_names(settings: BaseSettings | type[BaseSettings]) -> list[str]: ...
 ```
 
 ### Changes
@@ -79,8 +76,7 @@ def env_var_names(settings: BaseSettings | type[BaseSettings]) -> list[str]:
 > **Since:** 0.100.0
 
 ```python
-def field_names(model_type: type[BaseModel] | BaseModel) -> list[str]:
-    ...
+def field_names(model_type: type[BaseModel] | BaseModel) -> list[str]: ...
 ```
 
 ### Changes

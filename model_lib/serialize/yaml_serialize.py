@@ -44,7 +44,7 @@ def dump_yaml_str(
             except DumperExist:
                 raise e from None
             return dump_yaml_str(data, width, default_flow_style, allow_unicode, sort_keys)
-        raise e
+        raise
     return s.getvalue()
 
 
@@ -137,7 +137,7 @@ class edit_helm_template:
         for converter in converters:
             template_yaml = converter(template_yaml)
         template_lines = "\n".join(self.template_lines)
-        final_template = "\n".join([template_lines, template_yaml]).lstrip("\n") + "\n"
+        final_template = f"{template_lines}\n{template_yaml}".lstrip("\n") + "\n"
         self.out_path.write_text(final_template)
 
     def __init__(

@@ -67,7 +67,7 @@ class _MyEnum(StrEnum):
 
 
 def test_dumping_enum_to_yaml():
-    assert dump_as_str(dict(key=_MyEnum.A), "yaml") == "key: A\n"
+    assert dump_as_str({"key": _MyEnum.A}, "yaml") == "key: A\n"
 
 
 def test_pydantic_json_dump():

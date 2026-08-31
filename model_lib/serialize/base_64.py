@@ -3,12 +3,10 @@ from __future__ import annotations
 from base64 import b64decode, b64encode
 from functools import singledispatch
 from secrets import token_bytes
-from typing import Final, Literal
+from typing import Final
 
 # See https://tools.ietf.org/html/rfc3548.html
-BASE64_CHARACTER_SET: Final[Literal["ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="]] = (
-    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="
-)
+BASE64_CHARACTER_SET: Final = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="
 
 
 @singledispatch

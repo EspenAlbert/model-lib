@@ -1,19 +1,11 @@
 from __future__ import annotations
 
 import json
-import logging
-from typing import Any, Callable, TypeVar
+from typing import Any
 
 import pydantic
-from typing_extensions import TypeAlias
 
 from model_lib.model_dump import dump as model_dump
-
-logger = logging.getLogger(__name__)
-T = TypeVar("T")
-
-dump_call: TypeAlias = Callable[[T], str]
-dump_parse: TypeAlias = tuple[dump_call, dump_call, Callable[[str], Any]] | None
 
 
 def dump(instance: Any) -> str:

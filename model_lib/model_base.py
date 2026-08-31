@@ -1,6 +1,7 @@
 from __future__ import annotations
 
-from typing import Iterable, List, Type, TypeVar
+from collections.abc import Iterable, Iterator
+from typing import List, Type, TypeVar
 
 from pydantic import BaseModel, RootModel
 from zero_3rdparty.object_name import as_name
@@ -27,12 +28,12 @@ def model_name_to_t(name: str) -> type:
 
 
 class _Model(BaseModel):
-    model_config = dict(
-        use_enum_values=True,
-        extra="allow",  # type: ignore
-        arbitrary_types_allowed=True,
-        populate_by_name=True,
-    )
+    model_config = {
+        "use_enum_values": True,
+        "extra": "allow",  # type: ignore
+        "arbitrary_types_allowed": True,
+        "populate_by_name": True,
+    }
 
     def __init_subclass__(cls, **kwargs):
         super().__init_subclass__(**kwargs)
@@ -52,11 +53,11 @@ class _Model(BaseModel):
 
 
 class Event(_Model):
-    model_config = dict(frozen=True, validate_assignment=True)
+    model_config = {"frozen": True, "validate_assignment": True}
 
 
 class Entity(_Model):
-    model_config = dict(frozen=False, validate_assignment=False)
+    model_config = {"frozen": False, "validate_assignment": False}
 
 
 class TypeEvent:
@@ -81,7 +82,7 @@ SeqModelT = TypeVar("SeqModelT")
 
 
 class SeqModel(RootModel[list[SeqModelT]]):
-    def __iter__(self) -> Iterable[SeqModelT]:  # type: ignore
+    def __iter__(self) -> Iterator[SeqModelT]:  # type: ignore[override]
         return iter(self.root)
 
     def __getitem__(self, item):

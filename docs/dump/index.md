@@ -22,8 +22,7 @@
 > **Since:** 0.100.0
 
 ```python
-def dump_as_dict(instance: object) -> dict:
-    ...
+def dump_as_dict(instance: object) -> dict: ...
 ```
 
 ### Changes
@@ -40,8 +39,7 @@ def dump_as_dict(instance: object) -> dict:
 > **Since:** 0.100.0
 
 ```python
-def dump_as_list(instance: Iterable[~ModelT]) -> list:
-    ...
+def dump_as_list(instance: Iterable[~ModelT]) -> list: ...
 ```
 
 ### Changes
@@ -58,8 +56,7 @@ def dump_as_list(instance: Iterable[~ModelT]) -> list:
 > **Since:** 0.100.0
 
 ```python
-def dump_as_str(instance: object, format: FileFormat | str) -> str:
-    ...
+def dump_as_str(instance: object, format: FileFormat | str) -> str: ...
 ```
 
 >>> dump_as_str('', "json")

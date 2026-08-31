@@ -6,8 +6,7 @@
 > **Since:** 0.100.0
 
 ```python
-class IgnoreFalsy(BaseModel):
-    ...
+class IgnoreFalsy(BaseModel): ...
 ```
 <!-- === OK_EDIT: pkg-ext ignorefalsy_def === -->
 
