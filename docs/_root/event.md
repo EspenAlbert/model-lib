@@ -2,7 +2,7 @@
 
 <!-- === DO_NOT_EDIT: pkg-ext event_def === -->
 ## class: Event
-- [source](../../model_lib/model_base.py#L54)
+- [source](../../model_lib/model_base.py#L55)
 > **Since:** 0.100.0
 
 ```python

@@ -22,6 +22,7 @@ dependencies = [
   "pyyaml>=6.0.2",
   "python-dotenv>=1.0",
   "zero-3rdparty",
+  "click>=8.0",
 ]
 
 [project.optional-dependencies]
@@ -64,6 +65,13 @@ target-version = "py313"
 # UP047: use type parameters instead of `Generic[T]` subclass
 extend-ignore = ["E501", "UP006", "UP007", "UP035", "UP040", "UP046", "UP047"]
 extend-select = ["Q", "RUF100", "C90", "UP", "I", "T", "FURB"]
+
+[tool.ruff.lint.flake8-bugbear]
+extend-immutable-calls = ["typer.Option", "typer.Argument"]
+
+[tool.ruff.format]
+# pytest-examples print prefix is `#>`; ruff 0.16 markdown format turns that into `# >`
+exclude = ["docs/examples/**"]
 # === OK_EDIT: path-sync ruff ===
 
 # === DO_NOT_EDIT: path-sync pytest ===

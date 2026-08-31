@@ -63,9 +63,9 @@ class _ParentWithCached(Entity):
 
 def test_dumping_should_not_include_cached_property():
     instance = _MyCachedPropModel(name="n", last_name="ln")
-    assert dump(instance) == dict(name="n", last_name="ln")
+    assert dump(instance) == {"name": "n", "last_name": "ln"}
     assert instance.full_name == "n ln"
-    assert dump(instance) == dict(name="n", last_name="ln")
+    assert dump(instance) == {"name": "n", "last_name": "ln"}
     parent = _ParentWithCached(child=instance)
     assert dump(parent) == {"child": _MyCachedPropModel(last_name="ln", name="n")}
     assert dump_as_str(parent, "json") == '{"child":{"name":"n","last_name":"ln"}}'

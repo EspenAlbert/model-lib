@@ -83,7 +83,6 @@ def copy_value(key: KeyT, value: T) -> T:
 
 
 def set_copy_behavior(t: KeyT, config: CopyConfig) -> None:
-    global _copy_config
     _copy_config[t] = config
 
 

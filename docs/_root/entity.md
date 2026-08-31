@@ -2,7 +2,7 @@
 
 <!-- === DO_NOT_EDIT: pkg-ext entity_def === -->
 ## class: Entity
-- [source](../../model_lib/model_base.py#L58)
+- [source](../../model_lib/model_base.py#L59)
 > **Since:** 0.100.0
 
 ```python

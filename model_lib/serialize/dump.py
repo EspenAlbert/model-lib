@@ -104,8 +104,8 @@ def dump_safe(message: dict | object, format: FileFormat | str = FileFormat.json
             return dump_as_str(message_safe, format=format)
         # noinspection PyUnreachableCode
         logger.critical(f"failed to dump {message}")
-    except Exception as e:
-        logger.exception(e)
+    except Exception:
+        logger.exception("failed to dump")
     return ""
 
 

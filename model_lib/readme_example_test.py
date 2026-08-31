@@ -96,7 +96,7 @@ class CustomDumping:
 
 
 def custom_dump(custom: CustomDumping):
-    return dict(full_name=f"{custom.first_name} {custom.last_name}")
+    return {"full_name": f"{custom.first_name} {custom.last_name}"}
 
 
 register_dumper(CustomDumping, custom_dump)

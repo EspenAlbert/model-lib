@@ -12,7 +12,7 @@ logger = logging.getLogger(__name__)
 
 
 def raise_missing_toml(*_, **__):
-    raise Exception("pip install tomli tomli-w tomlkit")
+    raise ImportError("pip install tomli tomli-w tomlkit")
 
 
 @dataclass

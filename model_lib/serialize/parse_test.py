@@ -19,7 +19,7 @@ class _MyModelWithAge(Event):
 def test_parse_with_extra_kwargs():
     model = _MyModelWithAge(name="test", age=22)
     raw = dump_with_metadata(model=model)
-    model_back, metadata = parse_model_metadata(raw, extra_kwargs=dict(city="known"))
+    model_back, _metadata = parse_model_metadata(raw, extra_kwargs={"city": "known"})
     assert model != model_back
     assert model_back.city == "known"
 
@@ -27,13 +27,13 @@ def test_parse_with_extra_kwargs():
 def test_parse_no_extra_kwargs():
     model = _MyModelWithAge(name="test", age=22)
     raw = dump_with_metadata(model=model)
-    model_back, metadata = parse_model_metadata(raw)
+    model_back, _metadata = parse_model_metadata(raw)
     assert model_back == model
 
 
 def test_dump_and_parse_a_str():
     raw_string = "raw string as a model"
-    metadata = dict(a=1, b="ok", model_name="str")
+    metadata = {"a": 1, "b": "ok", "model_name": "str"}
     dumped = dump_with_metadata(raw_string, metadata)
     model, metadata_back = parse_model_metadata(dumped)
     assert model == raw_string

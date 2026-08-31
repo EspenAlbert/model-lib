@@ -29,7 +29,6 @@ def _no_removal():
 
 
 def add_metadata_dumper(call: MetadataDumper) -> RemoveDumper:
-    global _dumpers
     call_names = {as_name(call): call for call in _dumpers}
     call_name = as_name(call)
     if same_name_call := call_names.get(call_name):
