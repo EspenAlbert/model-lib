@@ -35,7 +35,7 @@ def dump_yaml_str(
             allow_unicode=allow_unicode,
             sort_keys=sort_keys,
         )
-    except yaml.representer.RepresenterError as e:
+    except yaml.representer.RepresenterError as e:  # ty: ignore[possibly-missing-submodule]
         _, maybe_base_model = e.args
         logger.info(f"not yaml serializable, trying re-register: {type(maybe_base_model)}")
         if isinstance(maybe_base_model, BaseModel):
@@ -109,7 +109,7 @@ class edit_helm_template:
     def make_template_loadable(self) -> None:
         """template -> yaml."""
         old_text = Path(self.path).read_text()
-        self.template_lines = standalone_template_lines = []  # type: ignore
+        self.template_lines = standalone_template_lines = []
         yaml_parts: List[str] = []
         for line in old_text.split("\n"):
             if line.startswith("{{"):
@@ -147,7 +147,7 @@ class edit_helm_template:
         yaml_path=None,
     ):
         self.path = Path(path)
-        self.template_lines: List[str] = []  # type: ignore
+        self.template_lines: List[str] = []
         self.out_path: Path = Path(out_path or path)
 
         self.edit_yaml = edit_yaml(self.out_path, yaml_path, width=1000)
@@ -213,11 +213,11 @@ class no_yaml_anchors:
     def __enter__(self):
         self.old_dumper = yaml.SafeDumper
         # Replace SafeDumper with our custom dumper that ignores aliases
-        yaml.SafeDumper = _NoAliasSafeDumper
+        yaml.SafeDumper = _NoAliasSafeDumper  # ty: ignore[invalid-assignment]
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         # Restore original SafeDumper
-        yaml.SafeDumper = self.old_dumper
+        yaml.SafeDumper = self.old_dumper  # ty: ignore[invalid-assignment]
 
 
 def _construct_timestamp_as_str(loader, node):
@@ -252,10 +252,10 @@ class allow_duplicate_anchors:
 
     def __enter__(self):
         self.old_loader = yaml.SafeLoader
-        yaml.SafeLoader = _DuplicateAnchorSafeLoader
+        yaml.SafeLoader = _DuplicateAnchorSafeLoader  # ty: ignore[invalid-assignment]
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        yaml.SafeLoader = self.old_loader
+        yaml.SafeLoader = self.old_loader  # ty: ignore[invalid-assignment]
 
 
 class _NoTimestampSafeLoader(yaml.SafeLoader):
@@ -283,7 +283,7 @@ class no_timestamp_conversion:
         # Replace timestamp constructor with one that returns strings
         _NoTimestampSafeLoader.yaml_constructors[timestamp_tag] = _construct_timestamp_as_str
         # Replace SafeLoader with our custom loader
-        yaml.SafeLoader = _NoTimestampSafeLoader
+        yaml.SafeLoader = _NoTimestampSafeLoader  # ty: ignore[invalid-assignment]
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         # Restore timestamp constructor if it existed
@@ -291,7 +291,7 @@ class no_timestamp_conversion:
         if self.old_timestamp_constructor is not None:
             _NoTimestampSafeLoader.yaml_constructors[timestamp_tag] = self.old_timestamp_constructor
         # Restore original SafeLoader
-        yaml.SafeLoader = self.old_loader
+        yaml.SafeLoader = self.old_loader  # ty: ignore[invalid-assignment]
 
 
 def _add_brackets(raw_yaml: str) -> str:

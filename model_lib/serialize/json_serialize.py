@@ -16,7 +16,7 @@ def dump(instance: Any) -> str:
 
 def pretty_dump(instance: Any) -> str:
     if isinstance(instance, pydantic.BaseModel):
-        instance = instance.model_dump()  # type: ignore # pydantic doesn't support sort_keys by default
+        instance = instance.model_dump()  # pydantic doesn't support sort_keys by default
     return json.dumps(
         instance,
         indent=2,

@@ -32,7 +32,7 @@ class Birthday(Event):
     >>> birthday = Birthday()
     """
 
-    date: datetime = Field(default_factory=datetime.utcnow)
+    date: datetime = Field(default_factory=lambda: datetime.now(UTC))
 
 
 class Person(Entity):

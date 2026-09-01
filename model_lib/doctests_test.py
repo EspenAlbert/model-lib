@@ -1,5 +1,5 @@
 import pytest
-import xdoctest as xdoc  # type: ignore
+import xdoctest as xdoc
 
 from model_lib import (
     base_settings,

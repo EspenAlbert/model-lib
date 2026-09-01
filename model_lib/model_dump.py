@@ -54,14 +54,14 @@ def _register_yaml_dumper(instance_type: Type[T], dump_call: DumpCall):
     if instance_type in (str, bytes, bool, int, float):
         return
     with suppress(ModuleNotFoundError):
-        import yaml  # type: ignore
+        import yaml
 
         def represent(dumper: yaml.BaseDumper, instance: T):
             data = dump_call(instance)
             return dumper.represent_data(data)
 
-        yaml.add_multi_representer(instance_type, represent, yaml.SafeDumper)  # type: ignore
-        yaml.add_multi_representer(instance_type, represent, yaml.Dumper)  # type: ignore
+        yaml.add_multi_representer(instance_type, represent, yaml.SafeDumper)
+        yaml.add_multi_representer(instance_type, represent, yaml.Dumper)
 
 
 def register_dumper(
