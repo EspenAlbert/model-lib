@@ -15,7 +15,7 @@ _METADATA_LOCAL_KEY = __name__
 T = TypeVar("T")
 
 
-set_copy_behavior(  # type: ignore
+set_copy_behavior(
     _METADATA_LOCAL_KEY,
     CopyConfig(
         thread_copy=True,

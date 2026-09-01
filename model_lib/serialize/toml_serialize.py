@@ -40,13 +40,13 @@ with suppress(ModuleNotFoundError):
 
 if not toml.dumps_ready:
     with suppress(ModuleNotFoundError):
-        import tomlkit  # type: ignore
+        import tomlkit
 
         toml.dumps = tomlkit.dumps
 
 # For loading: try tomlkit first, then tomli, then stdlib tomllib
 with suppress(ModuleNotFoundError):
-    import tomlkit  # type: ignore
+    import tomlkit
 
     def loads(value: str) -> Union[dict, list]:
         loaded = tomlkit.loads(value)
@@ -56,7 +56,7 @@ with suppress(ModuleNotFoundError):
 
 if not toml.loads_ready:
     try:
-        import tomli  # type: ignore
+        import tomli
 
         toml.loads = tomli.loads
     except ModuleNotFoundError:

@@ -103,7 +103,7 @@ def parse_model_metadata(
         return create_model(t, model_args, extra_kwargs or {}), metadata
     model_name = metadata.get("model_name")
     model_name_backup = metadata.get("model_name_backup")
-    model_cls: Type[T] | None = _lookup_safe(model_name) or _lookup_safe(model_name_backup)
+    model_cls: Type[T] | None = _lookup_safe(model_name) or _lookup_safe(model_name_backup)  # ty: ignore[invalid-assignment]
     if model_cls is None:
         message = f"unknown models: {model_name}, {model_name_backup}"
         raise PayloadError(parsed_payload, message, metadata)

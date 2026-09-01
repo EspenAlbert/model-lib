@@ -62,9 +62,9 @@ def test_iterating_over_people():
     people_list = [p1, p2]
     people = _People(people_list)
     assert len(people) == 2
-    assert list(people) == people_list  # type: ignore
+    assert list(people) == people_list
     # sourcery skip: no-loop-in-tests
-    for i, person in enumerate(people):  # type: ignore
+    for i, person in enumerate(people):
         assert person == people_list[i]
     assert people[1] == p2
     assert dump(people) == people_list

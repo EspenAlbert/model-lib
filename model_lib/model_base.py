@@ -12,11 +12,11 @@ from model_lib.pydantic_utils import model_dump
 
 T = TypeVar("T")
 ModelT = TypeVar("ModelT", bound=BaseModel)
-_model_name_to_type: dict[str, Type] = {
+_model_name_to_type: dict[str, Type] = {  # ty: ignore[invalid-assignment]
     "str": str,
     "int": int,
     "float": float,
-    "bool": want_bool,  # type: ignore
+    "bool": want_bool,
 }
 
 
@@ -30,7 +30,7 @@ def model_name_to_t(name: str) -> type:
 class _Model(BaseModel):
     model_config = {
         "use_enum_values": True,
-        "extra": "allow",  # type: ignore
+        "extra": "allow",
         "arbitrary_types_allowed": True,
         "populate_by_name": True,
     }
@@ -82,7 +82,7 @@ SeqModelT = TypeVar("SeqModelT")
 
 
 class SeqModel(RootModel[list[SeqModelT]]):
-    def __iter__(self) -> Iterator[SeqModelT]:  # type: ignore[override]
+    def __iter__(self) -> Iterator[SeqModelT]:  # ty: ignore[invalid-method-override]
         return iter(self.root)
 
     def __getitem__(self, item):

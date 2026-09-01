@@ -34,9 +34,9 @@ def dump_as_toml_str_compact(instance: object, multiline_strings: bool = False, 
     # dumps to json and parse 1st to support custom types
     # and since an error will have a side effect on the instance creating a _TomlObject
     if isinstance(instance, list):
-        raw: list | dict = dump_as_list(instance)  # type: ignore
+        raw: list | dict = dump_as_list(instance)
     else:
-        raw: dict = dump_as_dict(instance)  # type: ignore
+        raw: dict = dump_as_dict(instance)
     return dump_toml_str(raw, multiline_strings=multiline_strings)
 
 

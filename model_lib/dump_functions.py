@@ -21,7 +21,7 @@ class IgnoreFalsy(BaseModel):
         nxt: pydantic.SerializerFunctionWrapHandler,
     ):
         serialized = nxt(self)
-        no_falsy = ignore_falsy(**serialized)  # type: ignore
+        no_falsy = ignore_falsy(**serialized)
         return self.dump_dict_modifier(no_falsy)
 
     def dump_dict_modifier(self, payload: dict) -> dict:

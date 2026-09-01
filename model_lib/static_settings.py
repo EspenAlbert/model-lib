@@ -37,7 +37,7 @@ class StaticSettings(BaseSettings):
 
     @classmethod
     def from_env(cls, **kwargs) -> Self:
-        return cls(**kwargs)  # type: ignore
+        return cls(**kwargs)
 
     @property
     def static_root(self) -> Path:
