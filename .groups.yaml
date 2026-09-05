@@ -21,7 +21,6 @@ groups:
   owned_modules:
   - pydantic_utils
   owned_refs:
-  - pydantic_utils.BaseModelT
   - pydantic_utils.UtcDatetime
   - pydantic_utils.UtcDatetimeMs
   - pydantic_utils.copy_and_validate
