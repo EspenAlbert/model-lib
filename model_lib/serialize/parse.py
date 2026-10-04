@@ -22,6 +22,7 @@ from model_lib.errors import (
     UnknownModelError,
 )
 from model_lib.model_base import model_name_to_t
+from pydantic import AliasChoices, BaseModel
 from zero_3rdparty.object_name import as_name
 
 from .env_serialize import parse_env_str
@@ -79,6 +80,44 @@ def _lookup_safe(model_name: str) -> Type | None:
     return None
 
 
+def _is_env_format(payload: PayloadT, format: FileFormat | str) -> bool:
+    if isinstance(payload, Path):
+        file_format = payload.suffix or payload.name
+        format = _file_format_to_raw_format.get(file_format, format)
+    return format == FileFormat.env
+
+
+def _accepted_model_keys(model_type: type[BaseModel]) -> set[str]:
+    config = model_type.model_config
+    accept_by_name = bool(config.get("validate_by_name") or config.get("populate_by_name"))
+    keys: set[str] = set()
+    for name, field in model_type.model_fields.items():
+        if accept_by_name or (field.alias is None and field.validation_alias is None):
+            keys.add(name)
+        for candidate in (field.alias, field.validation_alias):
+            if isinstance(candidate, str):
+                keys.add(candidate)
+            elif isinstance(candidate, AliasChoices):
+                keys.update(choice for choice in candidate.choices if isinstance(choice, str))
+    return keys
+
+
+def _env_model_args(model_args: Any, model_type: Any, payload: PayloadT, format: FileFormat | str) -> Any:
+    """Drop env keys the model does not declare, so unrelated secrets never reach the model or its errors."""
+    if not isinstance(model_args, dict) or not _is_env_format(payload, format):
+        return model_args
+    if not (isinstance(model_type, type) and issubclass(model_type, BaseModel)):
+        return model_args
+    model_cls = cast(type[BaseModel], model_type)
+    accepted = _accepted_model_keys(model_cls)
+    extras = sorted(key for key in model_args if key not in accepted)
+    if not extras:
+        return model_args
+    if model_cls.model_config.get("extra") == "forbid":
+        raise PayloadError(payload="", message=f"unexpected env keys: {extras}")
+    return {key: value for key, value in model_args.items() if key in accepted}
+
+
 def parse_model_metadata(
     payload: PayloadT,
     format: FileFormat | str = FileFormat.json,
@@ -100,14 +139,16 @@ def parse_model_metadata(
     metadata = parsed_payload.get("metadata", {})
     model_args = parsed_payload.get("model", parsed_payload)
     if t:
-        return create_model(t, model_args, extra_kwargs or {}), metadata
+        return create_model(t, _env_model_args(model_args, t, payload, format), extra_kwargs or {}), metadata
     model_name = metadata.get("model_name")
     model_name_backup = metadata.get("model_name_backup")
     model_cls: Type[T] | None = _lookup_safe(model_name) or _lookup_safe(model_name_backup)  # ty: ignore[invalid-assignment]
     if model_cls is None:
         message = f"unknown models: {model_name}, {model_name_backup}"
         raise PayloadError(parsed_payload, message, metadata)
-    return create_model(model_cls, model_args, extra_kwargs or {}), metadata
+    return create_model(
+        model_cls, _env_model_args(model_args, model_cls, payload, format), extra_kwargs or {}
+    ), metadata
 
 
 def parse_model_name_kwargs_list(payload: Any) -> list:

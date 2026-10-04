@@ -24,9 +24,11 @@
 - Use `parse_payload(payload, format)` to parse to a `dict` or `list`
   - bytes
   - str
-  - pathlib.Path (format not necessary if file has extension: `.yaml|.yml|json|toml`)
+  - pathlib.Path (format not necessary if file has extension: `.yaml|.yml|json|toml|.env`)
   - dict|list will be returned directly
   - supports `register_parser` for adding e.g., a parser for KafkaMessage
+  - `.env` files parse to a flat `dict[str, str]`; keys are read verbatim, so map `UPPER_CASE` keys to fields with `Field(alias=...)`
+  - `parse_model` on a `.env` file drops keys the model does not declare, so unrelated secrets never reach the model or its errors
 - Use `parse_model(payload, t=Type, format)` to parse and create a model
   - `t` not necessary if class name stored in `metadata.model_name` (see example below)
   - format not necessary if parsing from a file with extension
