@@ -18,7 +18,7 @@
 <a id="parse_dict_def"></a>
 
 ### function: `parse_dict`
-- [source](../../model_lib/serialize/parse.py#L171)
+- [source](../../model_lib/serialize/parse.py#L190)
 > **Since:** 0.100.0
 
 ```python
@@ -37,7 +37,7 @@ def parse_dict(
 <a id="parse_list_def"></a>
 
 ### function: `parse_list`
-- [source](../../model_lib/serialize/parse.py#L164)
+- [source](../../model_lib/serialize/parse.py#L183)
 > **Since:** 0.100.0
 
 ```python
@@ -78,7 +78,7 @@ def parse_model(
 <a id="parse_payload_def"></a>
 
 ### function: `parse_payload`
-- [source](../../model_lib/serialize/parse.py#L178)
+- [source](../../model_lib/serialize/parse.py#L197)
 > **Since:** 0.100.0
 
 ```python

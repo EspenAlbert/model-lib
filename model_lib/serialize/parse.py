@@ -22,7 +22,7 @@ from model_lib.errors import (
     UnknownModelError,
 )
 from model_lib.model_base import model_name_to_t
-from pydantic import AliasChoices, BaseModel
+from pydantic import AliasChoices, AliasPath, BaseModel
 from zero_3rdparty.object_name import as_name
 
 from .env_serialize import parse_env_str
@@ -87,18 +87,37 @@ def _is_env_format(payload: PayloadT, format: FileFormat | str) -> bool:
     return format == FileFormat.env
 
 
+def _alias_input_keys(alias: Any) -> set[str]:
+    """Top-level env keys Pydantic reads a field from for the given alias."""
+    if isinstance(alias, str):
+        return {alias}
+    if isinstance(alias, AliasPath):
+        # env payloads are flat, so only a single-segment path can resolve
+        first = alias.path[0] if alias.path else None
+        return {first} if len(alias.path) == 1 and isinstance(first, str) else set()
+    if isinstance(alias, AliasChoices):
+        keys: set[str] = set()
+        for choice in alias.choices:
+            keys.update(_alias_input_keys(choice))
+        return keys
+    return set()
+
+
 def _accepted_model_keys(model_type: type[BaseModel]) -> set[str]:
     config = model_type.model_config
-    accept_by_name = bool(config.get("validate_by_name") or config.get("populate_by_name"))
+    validate_by_alias = bool(config.get("validate_by_alias", True))
+    validate_by_name = bool(config.get("validate_by_name") or config.get("populate_by_name"))
     keys: set[str] = set()
     for name, field in model_type.model_fields.items():
-        if accept_by_name or (field.alias is None and field.validation_alias is None):
+        if validate_by_name or not validate_by_alias:
             keys.add(name)
-        for candidate in (field.alias, field.validation_alias):
-            if isinstance(candidate, str):
-                keys.add(candidate)
-            elif isinstance(candidate, AliasChoices):
-                keys.update(choice for choice in candidate.choices if isinstance(choice, str))
+        if not validate_by_alias:
+            continue
+        alias = field.validation_alias if field.validation_alias is not None else field.alias
+        if alias is None:
+            keys.add(name)
+        else:
+            keys.update(_alias_input_keys(alias))
     return keys
 
 

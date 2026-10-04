@@ -2,7 +2,7 @@ from pathlib import Path
 from typing import cast
 
 import pytest
-from pydantic import ConfigDict, Field, ValidationError
+from pydantic import AliasChoices, AliasPath, ConfigDict, Field, ValidationError
 
 from model_lib import Event
 from model_lib.constants import FileFormat
@@ -103,3 +103,67 @@ def test_parse_model_env_forbid_rejects_extra_keys(tmp_path: Path):
     env_file.write_text("name=espen\nextra=leak-me\n")
     with pytest.raises(PayloadError, match="unexpected env keys"):
         parse_model(env_file, t=_Strict)
+
+
+def test_parse_model_env_drops_serialization_only_alias(tmp_path: Path):
+    class _ValidationAlias(Event):
+        cred_path: str = Field(alias="GSHEET_CRED_PATH", validation_alias="GSHEET_CREDENTIAL_PATH")
+
+    env_file = tmp_path / ".env"
+    env_file.write_text("GSHEET_CREDENTIAL_PATH=/tmp/cred.json\nGSHEET_CRED_PATH=leak-me\n")
+    creds = parse_model(env_file, t=_ValidationAlias)
+    assert creds.cred_path == "/tmp/cred.json"
+    assert not hasattr(creds, "GSHEET_CRED_PATH")
+
+
+def test_parse_model_env_error_hides_serialization_only_alias(tmp_path: Path):
+    class _ValidationAliasOnly(Event):
+        cred_path: str = Field(alias="GSHEET_CRED_PATH", validation_alias="GSHEET_CREDENTIAL_PATH")
+
+    env_file = tmp_path / ".env"
+    env_file.write_text("GSHEET_CRED_PATH=leak-me\n")
+    with pytest.raises(ValidationError) as excinfo:
+        parse_model(env_file, t=_ValidationAliasOnly)
+    assert "leak-me" not in str(excinfo.value)
+
+
+def test_parse_model_env_validate_by_name_only(tmp_path: Path):
+    class _NameOnly(Event):
+        model_config = ConfigDict(validate_by_alias=False)
+        cred_path: str = Field(alias="GSHEET_CRED_PATH")
+
+    env_file = tmp_path / ".env"
+    env_file.write_text("cred_path=/tmp/cred.json\n")
+    assert parse_model(env_file, t=_NameOnly).cred_path == "/tmp/cred.json"
+
+    env_file.write_text("GSHEET_CRED_PATH=leak-me\n")
+    with pytest.raises(ValidationError) as excinfo:
+        parse_model(env_file, t=_NameOnly)
+    assert "leak-me" not in str(excinfo.value)
+
+
+def test_parse_model_env_accepts_alias_choices(tmp_path: Path):
+    class _Choices(Event):
+        cred_path: str = Field(validation_alias=AliasChoices("GSHEET_CRED_PATH", "CREDENTIALS_PATH"))
+
+    env_file = tmp_path / ".env"
+    env_file.write_text("CREDENTIALS_PATH=/tmp/cred.json\n")
+    assert parse_model(env_file, t=_Choices).cred_path == "/tmp/cred.json"
+
+
+def test_parse_model_env_accepts_alias_path(tmp_path: Path):
+    class _AliasPath(Event):
+        cred_path: str = Field(validation_alias=AliasPath("TOKEN"))
+
+    env_file = tmp_path / ".env"
+    env_file.write_text("TOKEN=/tmp/cred.json\n")
+    assert parse_model(env_file, t=_AliasPath).cred_path == "/tmp/cred.json"
+
+
+def test_parse_model_env_accepts_alias_path_in_choices(tmp_path: Path):
+    class _AliasPathChoices(Event):
+        cred_path: str = Field(validation_alias=AliasChoices(AliasPath("TOKEN"), "OTHER"))
+
+    env_file = tmp_path / ".env"
+    env_file.write_text("OTHER=/tmp/cred.json\n")
+    assert parse_model(env_file, t=_AliasPathChoices).cred_path == "/tmp/cred.json"
