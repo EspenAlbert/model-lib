@@ -1,3 +1,8 @@
 ts: 2026-10-05 06:33:32.278438+00:00
 type: chore
 description: env-hide-extras-during-parsing-to-avoid-exposing-secrets
+---
+name: 0.103.3
+ts: 2026-10-05 06:35:49.094763+00:00
+type: release
+old_version: 0.103.2

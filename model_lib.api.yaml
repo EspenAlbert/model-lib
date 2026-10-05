@@ -1,12 +1,12 @@
 pkg_import_name: model_lib
-version: 0.103.2
+version: 0.103.3
 groups:
 - name: __ROOT__
   symbols:
   - name: Entity
     module_path: model_base
     docstring: ''
-    line_number: 58
+    line_number: 59
     type: class
     mro_bases:
     - _Model
@@ -28,7 +28,7 @@ groups:
   - name: Event
     module_path: model_base
     docstring: ''
-    line_number: 54
+    line_number: 55
     type: class
     mro_bases:
     - _Model
@@ -249,7 +249,7 @@ groups:
   - name: parse_dict
     module_path: serialize.parse
     docstring: ''
-    line_number: 130
+    line_number: 190
     type: function
     signature:
       parameters:
@@ -271,7 +271,7 @@ groups:
   - name: parse_list
     module_path: serialize.parse
     docstring: ''
-    line_number: 123
+    line_number: 183
     type: function
     signature:
       parameters:
@@ -293,7 +293,7 @@ groups:
   - name: parse_model
     module_path: serialize.parse
     docstring: ''
-    line_number: 54
+    line_number: 55
     type: function
     signature:
       parameters:
@@ -330,7 +330,7 @@ groups:
   - name: parse_payload
     module_path: serialize.parse
     docstring: ''
-    line_number: 137
+    line_number: 197
     type: function
     signature:
       parameters:
@@ -480,4 +480,4 @@ groups:
         kind: var_keyword
         type_imports: []
       return_type_imports: []
-dumped_at: 2026-05-15 13:36:44.281153+00:00
+dumped_at: 2026-10-05 06:35:49.083322+00:00

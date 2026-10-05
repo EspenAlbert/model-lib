@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.103.3 2026-10-05T06-35Z
+
+### Other Changes
+- Chore: env-hide-extras-during-parsing-to-avoid-exposing-secrets
+
+
 ## 0.103.2 2026-05-15T13-36Z
 
 ### Other Changes
