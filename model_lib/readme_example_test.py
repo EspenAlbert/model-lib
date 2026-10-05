@@ -120,3 +120,10 @@ def test_custom_dump():
     assert dump_as_str(instance, "json") == '{"full_name":"Espen Python"}'
     payload = CustomKafkaPayload(body='{"first_name": "Espen", "last_name": "Python"}', topic="some-topic")
     assert parse_model(payload, t=CustomDumping) == instance
+
+
+def test_show_parsing_env(tmp_path):
+    path_env = tmp_path / ".env"
+    path_env.write_text("name=espen\nage=99\n")
+    assert parse_payload(path_env) == {"name": "espen", "age": "99"}
+    assert parse_model(path_env, t=Person) == Person(name="espen", age=99)
